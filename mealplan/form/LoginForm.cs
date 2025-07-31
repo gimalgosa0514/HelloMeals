@@ -1,4 +1,6 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿using mealplan.form;
+using mealplan.util;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +13,9 @@ using System.Windows.Forms;
 
 namespace mealplan
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
         }
@@ -62,7 +64,20 @@ namespace mealplan
             }
         }
 
- 
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            OracleUtil.ConnectDB();
+        }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void registBtn_Click(object sender, EventArgs e)
+        {
+            Form registerForm = new RegisterForm();
+            registerForm.ShowDialog();
+        }
     }
 }

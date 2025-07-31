@@ -25,11 +25,12 @@ C:\Users\ibs\Desktop\test_two\mealplan\mealplan\bin\Debug\System.Text.Json.xml
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\bin\Debug\System.ValueTuple.xml
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.csproj.AssemblyReference.cache
-C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.Form1.resources
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.Properties.Resources.resources
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.csproj.GenerateResource.cache
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.csproj.CoreCompileInputs.cache
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.csproj.Up2Date
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.exe
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.pdb
+C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.LoginForm.resources
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.exe.config
+C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.form.RegisterForm.resources
