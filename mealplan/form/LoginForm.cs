@@ -1,4 +1,5 @@
-﻿using mealplan.form;
+﻿using mealplan.domain.users.repository;
+using mealplan.form;
 using mealplan.util;
 using Oracle.ManagedDataAccess.Client;
 using System;
@@ -15,9 +16,12 @@ namespace mealplan
 {
     public partial class LoginForm : Form
     {
+
+        IUserRepository userRepository;
         public LoginForm()
         {
             InitializeComponent();
+            userRepository = new UserRepositoryImpl();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -66,7 +70,6 @@ namespace mealplan
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            OracleUtil.ConnectDB();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -78,6 +81,11 @@ namespace mealplan
         {
             Form registerForm = new RegisterForm();
             registerForm.ShowDialog();
+        }
+
+        private void loginBtn_Click(object sender, EventArgs e)
+        {
+            userRepository.getUser(idTextBox.Text);
         }
     }
 }

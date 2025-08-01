@@ -34,3 +34,4 @@ C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.pdb
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.LoginForm.resources
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.exe.config
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.form.RegisterForm.resources
+C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.form.MainForm.resources

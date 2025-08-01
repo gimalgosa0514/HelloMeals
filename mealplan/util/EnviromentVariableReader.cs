@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace mealplan.util
 {
+    // DB정보를 깃에 올리면 안되니, 환경변수 파일을 만들어서 그 파일은 깃에 안올리되, 관리하기는 좋도록.
     internal static class EnviromentVariableReader
     {
         public static void ReadEnvFile()
