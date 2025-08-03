@@ -13,7 +13,7 @@ namespace mealplan.domain.users.model
         
         public User(string loginId, string password, string name, string gender, string birthdate, string height, string weight)
         {
-            this.loginId = loginId;
+            this.LoginId = loginId;
             Password = password;
             Name = name;
             Gender = gender;
@@ -22,7 +22,7 @@ namespace mealplan.domain.users.model
             Weight = weight;
         }
 
-        public string loginId { get; set; }
+        public string LoginId { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }
         public string Gender { get; set; }

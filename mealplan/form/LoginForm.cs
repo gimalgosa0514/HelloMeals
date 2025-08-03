@@ -1,4 +1,6 @@
-﻿using mealplan.domain.users.repository;
+﻿using mealplan.domain.users.exception;
+using mealplan.domain.users.repository;
+using mealplan.domain.users.service;
 using mealplan.form;
 using mealplan.util;
 using Oracle.ManagedDataAccess.Client;
@@ -17,11 +19,11 @@ namespace mealplan
     public partial class LoginForm : Form
     {
 
-        IUserRepository userRepository;
+        private IUserService userService;
         public LoginForm()
         {
             InitializeComponent();
-            userRepository = new UserRepositoryImpl();
+            userService = new UserServiceImpl(new UserRepositoryImpl());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -72,11 +74,6 @@ namespace mealplan
         {
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void registBtn_Click(object sender, EventArgs e)
         {
             Form registerForm = new RegisterForm();
@@ -85,7 +82,29 @@ namespace mealplan
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            userRepository.getUser(idTextBox.Text);
+            try
+            {
+                userService.Login(idTextBox.Text, passwordTextBox.Text);
+                MessageBox.Show(SystemMessage.WELCOME_MESSAGE);
+                Form mainForm = new MainForm();
+                
+                // 임시방편 => 로그인 성공하면 숨기고, 메인 폼 보여줌. 메인폼 닫힌다? 그럼 그냥 폼 보여줌.
+                this.Hide();
+                mainForm.FormClosed += (s, args) => {
+                    idTextBox.Text = idTextBox.Tag.ToString();
+                    idTextBox.ForeColor = Color.Gray;
+                    passwordTextBox.Text = passwordTextBox.Tag.ToString();
+                    passwordTextBox.UseSystemPasswordChar = false;
+                    passwordTextBox.ForeColor = Color.Gray;
+                    this.Show();
+                };
+                mainForm.Show();
+           
+            } catch (UserNotFoundException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

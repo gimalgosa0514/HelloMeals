@@ -35,3 +35,43 @@ C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.LoginForm.res
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.exe.config
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.form.RegisterForm.resources
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.form.MainForm.resources
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\obj\Debug\mealplan.csproj.AssemblyReference.cache
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\obj\Debug\mealplan.exe.config
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\obj\Debug\mealplan.LoginForm.resources
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\obj\Debug\mealplan.form.MainForm.resources
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\obj\Debug\mealplan.form.RegisterForm.resources
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\obj\Debug\mealplan.Properties.Resources.resources
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\obj\Debug\mealplan.csproj.GenerateResource.cache
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\obj\Debug\mealplan.csproj.CoreCompileInputs.cache
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\obj\Debug\mealplan.exe
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\obj\Debug\mealplan.pdb
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\mealplan.exe.config
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\mealplan.exe
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\mealplan.pdb
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Buffers.dll
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Formats.Asn1.dll
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Memory.dll
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Text.Json.dll
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.ValueTuple.dll
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Buffers.xml
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Formats.Asn1.xml
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Memory.xml
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Text.Json.xml
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\bin\Debug\System.ValueTuple.xml
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\obj\Debug\mealplan.csproj.Up2Date
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\obj\Debug\mealplan.custom.TodayPanelControl.resources
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\obj\Debug\mealplan.custom.UserMealPlanControl.resources
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\obj\Debug\mealplan.custom.FoodSearchControl.resources

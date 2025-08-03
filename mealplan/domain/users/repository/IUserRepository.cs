@@ -12,7 +12,7 @@ namespace mealplan.domain.users.repository
     {
 
         bool InsertUser(User user);
-        bool RemoveUser(User user);
+        bool RemoveUser(string loginId);
         User SelectUserByLoginId(string loginId);
         List<User> SelectAllUser();
 
