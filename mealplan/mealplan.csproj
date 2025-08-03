@@ -105,15 +105,24 @@
       <DependentUpon>UserMealPlanControl.cs</DependentUpon>
     </Compile>
     <Compile Include="domain\foods\model\Food.cs" />
-    <Compile Include="domain\foods\model\Menu.cs" />
-    <Compile Include="domain\foods\model\MenuFood.cs" />
+    <Compile Include="domain\foods\repository\FoodRepositoryImpl.cs" />
+    <Compile Include="domain\foods\repository\IFoodRepository.cs" />
+    <Compile Include="domain\foods\service\FoodServiceImpl.cs" />
+    <Compile Include="domain\foods\service\IFoodService.cs" />
     <Compile Include="domain\meals\model\Meal.cs" />
+    <Compile Include="domain\meals\model\MealFood.cs" />
     <Compile Include="domain\users\exception\UserNotFoundException.cs" />
     <Compile Include="domain\users\model\User.cs" />
     <Compile Include="domain\users\repository\IUserRepository.cs" />
     <Compile Include="domain\users\repository\UserRepositoryImpl.cs" />
     <Compile Include="domain\users\service\IUserService.cs" />
     <Compile Include="domain\users\service\UserServiceImpl.cs" />
+    <Compile Include="form\AddFoodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\AddFoodForm.Designer.cs">
+      <DependentUpon>AddFoodForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="form\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="custom\UserMealPlanControl.resx">
       <DependentUpon>UserMealPlanControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\AddFoodForm.resx">
+      <DependentUpon>AddFoodForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -197,8 +209,6 @@
     <None Include="Resources\sun.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="domain\foods\repository\" />
-    <Folder Include="domain\foods\service\" />
     <Folder Include="domain\meals\repository\" />
     <Folder Include="domain\meals\service\" />
   </ItemGroup>

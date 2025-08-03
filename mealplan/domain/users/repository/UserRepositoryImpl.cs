@@ -56,7 +56,7 @@ namespace mealplan.domain.users.repository
             // 1. 커넥션을 얻어옴.
             using (OracleConnection conn = oracleUtil.GetConnection())
             {
-                string sql = $"SELECT * FROM SYS_SYSTEM_CODE_DATA_KHM WHERE CODE_NAME='{inputLoginId}'";
+                string sql = $"SELECT * FROM SYS_SYSTEM_CODE_DATA_KHM WHERE CODE_NAME='{inputLoginId}' AND PLANT='MealPlan' AND TABLE_NAME='Users'";
 
                 // 2.쿼리문 넣어서 OracleCommand 객체 맹글어줌.
                 using (OracleCommand oracleCommand = new OracleCommand(sql, conn))
@@ -64,12 +64,12 @@ namespace mealplan.domain.users.repository
                     // 결과는 이렇게 ResultSet처럼 끌어다 쓰면 됨
                     using (OracleDataReader result = oracleCommand.ExecuteReader())
                     {
-                        
-                        if(!result.Read())
+             
+                        if (!result.Read())
                         {
                             return null;
                         }
-                        
+
                         string loginId = result.GetString(2);
                         string password = result.GetString(4);
                         string name = result.GetString(5);

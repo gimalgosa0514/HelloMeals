@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mealplan.domain.foods.model
+namespace mealplan.domain.meals.model
 {
-    internal class Menu
+    internal class MealFood
     {
     }
 }

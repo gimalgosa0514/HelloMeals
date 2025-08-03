@@ -28,19 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.keyword = new System.Windows.Forms.TextBox();
             this.searchBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.view = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.addMealButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.view)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // keyword
             // 
-            this.textBox1.Location = new System.Drawing.Point(81, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(147, 25);
-            this.textBox1.TabIndex = 0;
+            this.keyword.Location = new System.Drawing.Point(81, 30);
+            this.keyword.Name = "keyword";
+            this.keyword.Size = new System.Drawing.Size(147, 25);
+            this.keyword.TabIndex = 0;
             // 
             // searchBtn
             // 
@@ -50,6 +52,7 @@
             this.searchBtn.TabIndex = 1;
             this.searchBtn.Text = "검색";
             this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // label1
             // 
@@ -60,28 +63,51 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "음식 이름 :";
             // 
-            // dataGridView1
+            // view
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(36, 126);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(892, 281);
-            this.dataGridView1.TabIndex = 3;
+            this.view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.view.Location = new System.Drawing.Point(36, 126);
+            this.view.Name = "view";
+            this.view.RowTemplate.Height = 23;
+            this.view.Size = new System.Drawing.Size(892, 281);
+            this.view.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(286, 30);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 25);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "전체보기";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // addMealButton
+            // 
+            this.addMealButton.BackgroundImage = global::mealplan.Properties.Resources.Plus;
+            this.addMealButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.addMealButton.Location = new System.Drawing.Point(934, 415);
+            this.addMealButton.Name = "addMealButton";
+            this.addMealButton.Size = new System.Drawing.Size(37, 39);
+            this.addMealButton.TabIndex = 14;
+            this.addMealButton.UseVisualStyleBackColor = true;
+            this.addMealButton.Click += new System.EventHandler(this.addMealButton_Click);
             // 
             // FoodSearchControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.addMealButton);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.view);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.searchBtn);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.keyword);
             this.Font = new System.Drawing.Font("Noto Sans KR", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FoodSearchControl";
             this.Size = new System.Drawing.Size(974, 457);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.view)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,9 +115,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox keyword;
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView view;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addMealButton;
     }
 }
