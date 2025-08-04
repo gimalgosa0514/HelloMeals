@@ -56,7 +56,7 @@ namespace mealplan.domain.foods.repository
 
                 string sql = @"INSERT INTO SYS_SYSTEM_CODE_DATA_KHM
                              (PLANT, TABLE_NAME, CODE_NAME, CODE_SEQ, DESCRIPTION, CODE_GROUP1, CODE_GROUP2, CODE_GROUP3, CODE_GROUP4,CODE_GROUP5,EXP_DESCRIPTION)
-                             VALUES ('MealPlan', 'Foods', :codeName, :codeSeq,':foodName',':kcal',':carbo',':protein',':fat',':nrv',':nrvType')";
+                             VALUES ('MealPlan', 'Foods', :codeName, :codeSeq, :foodName,:kcal,:carbo,:protein,:fat,:nrv,:nrvType)";
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
@@ -65,6 +65,7 @@ namespace mealplan.domain.foods.repository
                     cmd.Parameters.Add("foodName", food.Name);
                     cmd.Parameters.Add("kcal", food.Kcal);
                     cmd.Parameters.Add("carbo", food.Carbohydrate);
+                    cmd.Parameters.Add("protein", food.Protein);
                     cmd.Parameters.Add("fat", food.Fat);
                     cmd.Parameters.Add("nrv", food.NutrientReferenceValue);
                     cmd.Parameters.Add("nrvType", food.NrvType);
@@ -149,13 +150,12 @@ namespace mealplan.domain.foods.repository
             {
                 string sql = @"SELECT CODE_NAME, DESCRIPTION, CODE_GROUP1, CODE_GROUP2, CODE_GROUP3, CODE_GROUP4, CODE_GROUP5, EXP_DESCRIPTION
                                FROM SYS_SYSTEM_CODE_DATA_KHM
-                               WHERE DESCRIPTION=:foodName";
+                               WHERE DESCRIPTION LIKE '%' || :foodName || '%'";
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
                     cmd.Parameters.Add("foodName", foodName);
 
-                    MessageBox.Show(cmd.ToString());
                     using (OracleDataReader result = cmd.ExecuteReader())
                     {
                         List<Food> sameNameFoods = new List<Food>();
@@ -186,12 +186,15 @@ namespace mealplan.domain.foods.repository
             {
                 // 일단 마지막 찾아야겠지... USer랑은 다르게 CODE_NAME도 동적으로 줘야하기 땜시롱 가져옴
                 // 이거 걍 메서드로 빼자
-                string sql = @"SELECT CODE_NAME, CODE_SEQ FROM SYS_SYSTEM_CODE_DATA_KHM
-                               WHERE 
-                               PLANT='MealPlan' AND 
-                               TABLE_NAME='Foods'
-                               ORDER BY CODE_SEQ DESC
-                               FETCH FIRST 1 ROWS ONLY";
+                string sql = @"SELECT CODE_NAME, CODE_SEQ
+                               FROM (
+                                SELECT CODE_NAME, CODE_SEQ
+                                FROM SYS_SYSTEM_CODE_DATA_KHM
+                                WHERE 
+                                PLANT='MealPlan' AND 
+                                TABLE_NAME='Foods'
+                                ORDER BY CODE_SEQ DESC)
+                               WHERE ROWNUM = 1";
                 using(OracleCommand cmd = new OracleCommand(sql,conn))
                 {
                     using (OracleDataReader result = cmd.ExecuteReader())

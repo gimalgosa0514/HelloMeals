@@ -9,10 +9,14 @@ namespace mealplan.domain.meals.model
 {
     internal class Meal
     {
+        public Meal(string loginId, string mealType)
+        {
+            LoginId = loginId;
+            MealType = mealType;
+        }
 
-        public long MealId { get; set; }
+        public long MealCodeName { get; set; }
         public string LoginId { get; set; }
-        public string MenuId { get; set; }
         public string MealType { get; set; }
         public DateTime CreatedAt{ get; set; }
        

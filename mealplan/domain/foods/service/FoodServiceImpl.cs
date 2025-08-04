@@ -31,5 +31,10 @@ namespace mealplan.domain.foods.service
         {
             return foodRepository.selectFoodByFoodName(foodName);
         }
+
+        public bool saveFood(Food food)
+        {
+            return foodRepository.insertFood(food);
+        }
     }
 }

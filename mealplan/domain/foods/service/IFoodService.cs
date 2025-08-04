@@ -13,5 +13,7 @@ namespace mealplan.domain.foods.service
         List<Food> searchFoodByName(string foodName);
 
         Food getFood(int foodCodeName);
+
+        bool saveFood(Food food);
     }
 }

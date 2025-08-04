@@ -32,22 +32,24 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataView = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.kcalLabel = new System.Windows.Forms.Label();
+            this.hydroLabel = new System.Windows.Forms.Label();
+            this.proteinLabel = new System.Windows.Forms.Label();
+            this.fatLabel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.oracleDataAdapter1 = new Oracle.ManagedDataAccess.Client.OracleDataAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             this.addMealButton = new System.Windows.Forms.Button();
             this.snack = new System.Windows.Forms.Panel();
             this.dinner = new System.Windows.Forms.Panel();
             this.lunch = new System.Windows.Forms.Panel();
             this.breakfast = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.kcalLabel = new System.Windows.Forms.Label();
-            this.hydroLabel = new System.Windows.Forms.Label();
-            this.proteinLabel = new System.Windows.Forms.Label();
-            this.fatLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,64 +93,20 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "간식";
             // 
-            // dataGridView1
+            // dataView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(170, 222);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(643, 219);
-            this.dataGridView1.TabIndex = 12;
-            // 
-            // addMealButton
-            // 
-            this.addMealButton.BackgroundImage = global::mealplan.Properties.Resources.Plus;
-            this.addMealButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.addMealButton.Location = new System.Drawing.Point(934, 415);
-            this.addMealButton.Name = "addMealButton";
-            this.addMealButton.Size = new System.Drawing.Size(37, 39);
-            this.addMealButton.TabIndex = 13;
-            this.addMealButton.UseVisualStyleBackColor = true;
-            // 
-            // snack
-            // 
-            this.snack.BackgroundImage = global::mealplan.Properties.Resources.night;
-            this.snack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.snack.Location = new System.Drawing.Point(827, 13);
-            this.snack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.snack.Name = "snack";
-            this.snack.Size = new System.Drawing.Size(48, 58);
-            this.snack.TabIndex = 7;
-            // 
-            // dinner
-            // 
-            this.dinner.BackgroundImage = global::mealplan.Properties.Resources.sunset;
-            this.dinner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.dinner.Location = new System.Drawing.Point(596, 13);
-            this.dinner.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dinner.Name = "dinner";
-            this.dinner.Size = new System.Drawing.Size(48, 58);
-            this.dinner.TabIndex = 6;
-            // 
-            // lunch
-            // 
-            this.lunch.BackgroundImage = global::mealplan.Properties.Resources.contrast;
-            this.lunch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.lunch.Location = new System.Drawing.Point(337, 13);
-            this.lunch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.lunch.Name = "lunch";
-            this.lunch.Size = new System.Drawing.Size(48, 58);
-            this.lunch.TabIndex = 5;
-            // 
-            // breakfast
-            // 
-            this.breakfast.BackgroundImage = global::mealplan.Properties.Resources.sun;
-            this.breakfast.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.breakfast.Location = new System.Drawing.Point(85, 13);
-            this.breakfast.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.breakfast.Name = "breakfast";
-            this.breakfast.Size = new System.Drawing.Size(48, 58);
-            this.breakfast.TabIndex = 4;
+            this.dataView.AllowUserToAddRows = false;
+            this.dataView.AllowUserToDeleteRows = false;
+            this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataView.Location = new System.Drawing.Point(76, 222);
+            this.dataView.MultiSelect = false;
+            this.dataView.Name = "dataView";
+            this.dataView.ReadOnly = true;
+            this.dataView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataView.RowTemplate.Height = 23;
+            this.dataView.Size = new System.Drawing.Size(796, 219);
+            this.dataView.TabIndex = 12;
+            this.dataView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataView_CellClick);
             // 
             // panel1
             // 
@@ -160,60 +118,16 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(170, 162);
+            this.panel1.Location = new System.Drawing.Point(76, 162);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(643, 59);
+            this.panel1.Size = new System.Drawing.Size(796, 59);
             this.panel1.TabIndex = 14;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Noto Sans KR", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(356, 10);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 21);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "지방";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Noto Sans KR", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.ForeColor = System.Drawing.Color.DimGray;
-            this.label6.Location = new System.Drawing.Point(413, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 21);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "단백질";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Noto Sans KR", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(485, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 21);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "탄수화물";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Noto Sans KR", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.ForeColor = System.Drawing.Color.DimGray;
-            this.label8.Location = new System.Drawing.Point(572, 10);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 21);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "칼로리";
             // 
             // kcalLabel
             // 
             this.kcalLabel.AutoSize = true;
             this.kcalLabel.Font = new System.Drawing.Font("Noto Sans KR", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.kcalLabel.Location = new System.Drawing.Point(578, 33);
+            this.kcalLabel.Location = new System.Drawing.Point(747, 33);
             this.kcalLabel.Name = "kcalLabel";
             this.kcalLabel.Size = new System.Drawing.Size(15, 17);
             this.kcalLabel.TabIndex = 7;
@@ -223,7 +137,7 @@
             // 
             this.hydroLabel.AutoSize = true;
             this.hydroLabel.Font = new System.Drawing.Font("Noto Sans KR", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.hydroLabel.Location = new System.Drawing.Point(491, 33);
+            this.hydroLabel.Location = new System.Drawing.Point(660, 33);
             this.hydroLabel.Name = "hydroLabel";
             this.hydroLabel.Size = new System.Drawing.Size(15, 17);
             this.hydroLabel.TabIndex = 6;
@@ -233,7 +147,7 @@
             // 
             this.proteinLabel.AutoSize = true;
             this.proteinLabel.Font = new System.Drawing.Font("Noto Sans KR", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.proteinLabel.Location = new System.Drawing.Point(419, 33);
+            this.proteinLabel.Location = new System.Drawing.Point(588, 33);
             this.proteinLabel.Name = "proteinLabel";
             this.proteinLabel.Size = new System.Drawing.Size(15, 17);
             this.proteinLabel.TabIndex = 5;
@@ -243,19 +157,129 @@
             // 
             this.fatLabel.AutoSize = true;
             this.fatLabel.Font = new System.Drawing.Font("Noto Sans KR", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.fatLabel.Location = new System.Drawing.Point(362, 33);
+            this.fatLabel.Location = new System.Drawing.Point(531, 33);
             this.fatLabel.Name = "fatLabel";
             this.fatLabel.Size = new System.Drawing.Size(15, 17);
             this.fatLabel.TabIndex = 4;
             this.fatLabel.Text = "0";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Noto Sans KR", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.ForeColor = System.Drawing.Color.DimGray;
+            this.label8.Location = new System.Drawing.Point(741, 10);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(52, 21);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "칼로리";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Noto Sans KR", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.ForeColor = System.Drawing.Color.DimGray;
+            this.label7.Location = new System.Drawing.Point(654, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 21);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "탄수화물";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Noto Sans KR", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.ForeColor = System.Drawing.Color.DimGray;
+            this.label6.Location = new System.Drawing.Point(582, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 21);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "단백질";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Noto Sans KR", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.ForeColor = System.Drawing.Color.DimGray;
+            this.label5.Location = new System.Drawing.Point(525, 10);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 21);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "지방";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(796, 139);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "삭제";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // addMealButton
+            // 
+            this.addMealButton.BackgroundImage = global::mealplan.Properties.Resources.Plus;
+            this.addMealButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.addMealButton.Location = new System.Drawing.Point(934, 415);
+            this.addMealButton.Name = "addMealButton";
+            this.addMealButton.Size = new System.Drawing.Size(37, 39);
+            this.addMealButton.TabIndex = 13;
+            this.addMealButton.UseVisualStyleBackColor = true;
+            this.addMealButton.Click += new System.EventHandler(this.addMealButton_Click);
+            // 
+            // snack
+            // 
+            this.snack.BackgroundImage = global::mealplan.Properties.Resources.night;
+            this.snack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.snack.Location = new System.Drawing.Point(827, 13);
+            this.snack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.snack.Name = "snack";
+            this.snack.Size = new System.Drawing.Size(48, 58);
+            this.snack.TabIndex = 7;
+            this.snack.Click += new System.EventHandler(this.snack_Click);
+            // 
+            // dinner
+            // 
+            this.dinner.BackgroundImage = global::mealplan.Properties.Resources.sunset;
+            this.dinner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.dinner.Location = new System.Drawing.Point(596, 13);
+            this.dinner.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dinner.Name = "dinner";
+            this.dinner.Size = new System.Drawing.Size(48, 58);
+            this.dinner.TabIndex = 6;
+            this.dinner.Click += new System.EventHandler(this.dinner_Click);
+            // 
+            // lunch
+            // 
+            this.lunch.BackgroundImage = global::mealplan.Properties.Resources.contrast;
+            this.lunch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.lunch.Location = new System.Drawing.Point(337, 13);
+            this.lunch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lunch.Name = "lunch";
+            this.lunch.Size = new System.Drawing.Size(48, 58);
+            this.lunch.TabIndex = 5;
+            this.lunch.Click += new System.EventHandler(this.lunch_Click);
+            // 
+            // breakfast
+            // 
+            this.breakfast.BackgroundImage = global::mealplan.Properties.Resources.sun;
+            this.breakfast.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.breakfast.Location = new System.Drawing.Point(85, 13);
+            this.breakfast.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.breakfast.Name = "breakfast";
+            this.breakfast.Size = new System.Drawing.Size(48, 58);
+            this.breakfast.TabIndex = 4;
+            this.breakfast.Click += new System.EventHandler(this.breakfast_Click);
+            // 
             // TodayPanelControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.addMealButton);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataView);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -269,7 +293,7 @@
             this.Name = "TodayPanelControl";
             this.Size = new System.Drawing.Size(974, 457);
             this.Load += new System.EventHandler(this.TodayPanelControl_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -287,7 +311,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataView;
         private System.Windows.Forms.Button addMealButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label8;
@@ -298,5 +322,7 @@
         private System.Windows.Forms.Label hydroLabel;
         private System.Windows.Forms.Label proteinLabel;
         private System.Windows.Forms.Label fatLabel;
+        private Oracle.ManagedDataAccess.Client.OracleDataAdapter oracleDataAdapter1;
+        private System.Windows.Forms.Button button1;
     }
 }
