@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Windows.Forms;
 
 namespace mealplan.domain.meals.repository
 {
@@ -93,6 +94,62 @@ namespace mealplan.domain.meals.repository
             }
         }
 
+        public List<MealFood> selectTodayMealFood(string userId)
+        {
+            using (OracleConnection conn = oracleUtil.GetConnection())
+            {
+
+                string sql = @"SELECT mf.CODE_NAME AS 순번,
+                                m.CODE_GROUP1 AS 식사타입,
+                                mf.CODE_GROUP2 AS 섭취량,
+                                f.EXP_DESCRIPTION AS 섭취량타입,
+                                f.DESCRIPTION AS 음식이름,
+                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP1) as 칼로리,
+                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP2) as 탄수화물,
+                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP3) as 단백질,
+                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP4) as 지방
+                               FROM SYS_SYSTEM_CODE_DATA_KHM m
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM mf
+                                    ON m.CODE_NAME = mf.DESCRIPTION
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM f
+                                    ON mf.CODE_GROUP1 = f.CODE_NAME
+                               WHERE m.DESCRIPTION = :userId AND m.CODE_GROUP2=to_date(sysdate)
+                               ORDER BY 
+                                CASE m.CODE_GROUP1
+                                WHEN '아침' THEN 1
+                                WHEN '점심' THEN 2
+                                WHEN '저녁' THEN 3
+                                ELSE 4
+                                END";
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add("userId", userId);
+
+                    using (OracleDataReader result = cmd.ExecuteReader())
+                    {
+                        List<MealFood> mealFoods = new List<MealFood>();
+
+                        while (result.Read())
+                        {
+                            int mealFoodCodeName = int.Parse(result.GetString(0));
+                            string _mealType = result.GetString(1);
+                            int amount = int.Parse(result.GetString(2));
+                            string nrvType = result.GetString(3);
+                            string foodName = result.GetString(4);
+                            double kcal = double.Parse(result.GetString(5));
+                            double carbo = double.Parse(result.GetString(6));
+                            double protein = double.Parse(result.GetString(7));
+                            double fat = double.Parse(result.GetString(8));
+
+                            mealFoods.Add(new MealFood(mealFoodCodeName, _mealType, amount, nrvType, foodName, kcal, carbo, protein, fat));
+                        }
+
+                        return mealFoods;
+                    }
+                }
+            }
+        }
         public List<MealFood> selectTodayMealFood(string userId, string mealType)
         {
             using(OracleConnection conn = oracleUtil.GetConnection())
@@ -136,6 +193,116 @@ namespace mealplan.domain.meals.repository
                             double fat = double.Parse(result.GetString(8));
 
                             mealFoods.Add(new MealFood(mealFoodCodeName, mealType, amount, nrvType, foodName,kcal, carbo, protein,fat));
+                        }
+
+                        return mealFoods;
+                    }
+                }
+            }
+        }
+
+        public List<MealFood> selectMealFoodByDate(string userId, string mealType, string date)
+        {
+            using (OracleConnection conn = oracleUtil.GetConnection())
+            {
+
+                string sql = @"SELECT mf.CODE_NAME AS 순번,
+                                m.CODE_GROUP1 AS 식사타입,
+                                mf.CODE_GROUP2 AS 섭취량,
+                                f.EXP_DESCRIPTION AS 섭취량타입,
+                                f.DESCRIPTION AS 음식이름,
+                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP1) as 칼로리,
+                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP2) as 탄수화물,
+                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP3) as 단백질,
+                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP4) as 지방
+                               FROM SYS_SYSTEM_CODE_DATA_KHM m
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM mf
+                                    ON m.CODE_NAME = mf.DESCRIPTION
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM f
+                                    ON mf.CODE_GROUP1 = f.CODE_NAME
+                               WHERE m.DESCRIPTION = :userId AND m.CODE_GROUP1 = :mealType AND m.CODE_GROUP2=:targetDate";
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add("userId", userId);
+                    cmd.Parameters.Add("mealType", mealType);
+                    cmd.Parameters.Add("targetDate", date);
+
+                    using (OracleDataReader result = cmd.ExecuteReader())
+                    {
+                        List<MealFood> mealFoods = new List<MealFood>();
+
+                        while (result.Read())
+                        {
+                            int mealFoodCodeName = int.Parse(result.GetString(0));
+                            string _mealType = result.GetString(1);
+                            int amount = int.Parse(result.GetString(2));
+                            string nrvType = result.GetString(3);
+                            string foodName = result.GetString(4);
+                            double kcal = double.Parse(result.GetString(5));
+                            double carbo = double.Parse(result.GetString(6));
+                            double protein = double.Parse(result.GetString(7));
+                            double fat = double.Parse(result.GetString(8));
+
+                            mealFoods.Add(new MealFood(mealFoodCodeName, mealType, amount, nrvType, foodName, kcal, carbo, protein, fat));
+                        }
+
+                        return mealFoods;
+                    }
+                }
+            }
+        }
+
+        public List<MealFood> selectMealFoodByDate(string userId,string date)
+        {
+            using (OracleConnection conn = oracleUtil.GetConnection())
+            {
+
+                string sql = @"SELECT mf.CODE_NAME AS 순번,
+                                m.CODE_GROUP1 AS 식사타입,
+                                mf.CODE_GROUP2 AS 섭취량,
+                                f.EXP_DESCRIPTION AS 섭취량타입,
+                                f.DESCRIPTION AS 음식이름,
+                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP1) as 칼로리,
+                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP2) as 탄수화물,
+                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP3) as 단백질,
+                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP4) as 지방
+                               FROM SYS_SYSTEM_CODE_DATA_KHM m
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM mf
+                                    ON m.CODE_NAME = mf.DESCRIPTION
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM f
+                                    ON mf.CODE_GROUP1 = f.CODE_NAME
+                               WHERE m.DESCRIPTION = :userId AND m.CODE_GROUP2=:targetDate
+                               ORDER BY 
+                                CASE m.CODE_GROUP1
+                                WHEN '아침' THEN 1
+                                WHEN '점심' THEN 2
+                                WHEN '저녁' THEN 3
+                                ELSE 4
+                                END";
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add("userId", userId);
+                    cmd.Parameters.Add("targetDate", date);
+
+                    using (OracleDataReader result = cmd.ExecuteReader())
+                    {
+                        List<MealFood> mealFoods = new List<MealFood>();
+
+                        while (result.Read())
+                        {
+                            int mealFoodCodeName = int.Parse(result.GetString(0));
+                            string _mealType = result.GetString(1);
+                            int amount = int.Parse(result.GetString(2));
+                            string nrvType = result.GetString(3);
+                            string foodName = result.GetString(4);
+                            double kcal = double.Parse(result.GetString(5));
+                            double carbo = double.Parse(result.GetString(6));
+                            double protein = double.Parse(result.GetString(7));
+                            double fat = double.Parse(result.GetString(8));
+
+                            mealFoods.Add(new MealFood(mealFoodCodeName, _mealType, amount, nrvType, foodName, kcal, carbo, protein, fat));
                         }
 
                         return mealFoods;

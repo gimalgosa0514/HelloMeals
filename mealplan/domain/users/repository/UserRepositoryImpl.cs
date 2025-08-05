@@ -94,11 +94,13 @@ namespace mealplan.domain.users.repository
 
 
                 //새로운 유저를 넣기 전 마지막 MealPlan의 마지막 User의 code_seq를 보고 제일 마지막 seq + 1을 해주고 나서 넣어야함. 그래서 조회 먼저 해야함 ㅠ 
-                string selectSql = $@"SELECT CODE_SEQ FROM SYS_SYSTEM_CODE_DATA_KHM WHERE
-                PLANT = 'MealPlan' AND
-                TABLE_NAME = 'Users'
-                ORDER BY CODE_SEQ DESC
-                FETCH FIRST 1 ROWS ONLY";
+                string selectSql = $@"SELECT CODE_SEQ 
+                                      FROM (SELECT CODE_SEQ FROM SYS_SYSTEM_CODE_DATA_KHM 
+                                            WHERE
+                                            PLANT = 'MealPlan' AND
+                                            TABLE_NAME = 'Users'
+                                            ORDER BY CODE_SEQ DESC)
+                                      WHERE ROWNUM = 1";
 
                 int lastSeq = 1;
                 using(OracleCommand cmd = new OracleCommand(selectSql, conn))

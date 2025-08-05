@@ -49,6 +49,7 @@
             this.dinner = new System.Windows.Forms.Panel();
             this.lunch = new System.Windows.Forms.Panel();
             this.breakfast = new System.Windows.Forms.Panel();
+            this.selectAllBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -127,7 +128,7 @@
             // 
             this.kcalLabel.AutoSize = true;
             this.kcalLabel.Font = new System.Drawing.Font("Noto Sans KR", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.kcalLabel.Location = new System.Drawing.Point(747, 33);
+            this.kcalLabel.Location = new System.Drawing.Point(748, 33);
             this.kcalLabel.Name = "kcalLabel";
             this.kcalLabel.Size = new System.Drawing.Size(15, 17);
             this.kcalLabel.TabIndex = 7;
@@ -209,7 +210,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(796, 139);
+            this.button1.Location = new System.Drawing.Point(795, 138);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 15;
@@ -272,10 +273,21 @@
             this.breakfast.TabIndex = 4;
             this.breakfast.Click += new System.EventHandler(this.breakfast_Click);
             // 
+            // selectAllBtn
+            // 
+            this.selectAllBtn.Location = new System.Drawing.Point(714, 138);
+            this.selectAllBtn.Name = "selectAllBtn";
+            this.selectAllBtn.Size = new System.Drawing.Size(75, 23);
+            this.selectAllBtn.TabIndex = 16;
+            this.selectAllBtn.Text = "전체보기";
+            this.selectAllBtn.UseVisualStyleBackColor = true;
+            this.selectAllBtn.Click += new System.EventHandler(this.selectAllBtn_Click);
+            // 
             // TodayPanelControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.selectAllBtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.addMealButton);
@@ -324,5 +336,6 @@
         private System.Windows.Forms.Label fatLabel;
         private Oracle.ManagedDataAccess.Client.OracleDataAdapter oracleDataAdapter1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button selectAllBtn;
     }
 }

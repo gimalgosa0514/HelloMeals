@@ -20,6 +20,12 @@ namespace mealplan.domain.meals.service
         {
             return mealRepository.selectTodayMealFood(userId, mealType);
         }
+        public List<MealFood> getTodayMeal(string userId)
+        {
+            return mealRepository.selectTodayMealFood(userId);
+        }
+
+        
 
         public bool saveMeal(string loginId, int foodCodeName, MealFood mealFood)
         {
@@ -29,6 +35,16 @@ namespace mealplan.domain.meals.service
         public bool removeMealFood(int mealFoodId)
         {
             return mealRepository.deleteMealFood(mealFoodId);
+        }
+
+        public List<MealFood> getMealByDate(string userId, string mealType, string date)
+        {
+            return mealRepository.selectMealFoodByDate(userId, mealType, date);
+        }
+
+        public List<MealFood> getMealByDate(string userId, string date)
+        {
+            return mealRepository.selectMealFoodByDate(userId, date);
         }
     }
 }

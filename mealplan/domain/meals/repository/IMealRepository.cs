@@ -12,12 +12,12 @@ namespace mealplan.domain.meals.repository
     {
 
         List<MealFood> selectTodayMealFood(string userId, string mealType);
-
+        List<MealFood> selectTodayMealFood(string userId);
+        List<MealFood> selectMealFoodByDate(string userId, string mealType, string date);
+        List<MealFood> selectMealFoodByDate(string userId, string mealType);
         bool insertMeal(Meal meal);
-
         bool insertMealFood(MealFood mealFood, string userId, int foodCodeName);
         bool isExist(string userId, string mealType);
-
         bool deleteMealFood(int mealFoodCodeName);
 
     }

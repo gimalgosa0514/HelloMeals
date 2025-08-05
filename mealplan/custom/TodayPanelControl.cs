@@ -137,5 +137,11 @@ namespace mealplan.custom
                 selectedMealFoodCodeName = row.Cells["MealFoodCodeName"].Value.ToString();
             }
         }
+
+        private void selectAllBtn_Click(object sender, EventArgs e)
+        {
+            dataView.DataSource = mealService.getTodayMeal(Session.LoginedUser.LoginId);
+            setNutritionalLabel();
+        }
     }
 }

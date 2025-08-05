@@ -28,110 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
-            "1",
-            "김밥",
-            "15",
-            "20",
-            "70",
-            "1줄",
-            "450"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
-            "2",
-            "두유",
-            "7",
-            "15",
-            "10",
-            "1",
-            "100"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
-            "1",
-            "김밥",
-            "15",
-            "20",
-            "70",
-            "1줄",
-            "450"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
-            "2",
-            "두유",
-            "7",
-            "15",
-            "10",
-            "1",
-            "100"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(new string[] {
-            "1",
-            "김밥",
-            "15",
-            "20",
-            "70",
-            "1줄",
-            "450"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem(new string[] {
-            "2",
-            "두유",
-            "7",
-            "15",
-            "10",
-            "1",
-            "100"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem(new string[] {
-            "1",
-            "김밥",
-            "15",
-            "20",
-            "70",
-            "1줄",
-            "450"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem(new string[] {
-            "2",
-            "두유",
-            "7",
-            "15",
-            "10",
-            "1",
-            "100"}, -1);
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.listView3 = new System.Windows.Forms.ListView();
-            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.listView4 = new System.Windows.Forms.ListView();
-            this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader27 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader28 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.kcalLabel = new System.Windows.Forms.Label();
             this.hydroLabel = new System.Windows.Forms.Label();
             this.proteinLabel = new System.Windows.Forms.Label();
@@ -140,13 +39,16 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.oracleCommand1 = new Oracle.ManagedDataAccess.Client.OracleCommand();
+            this.dataView = new System.Windows.Forms.DataGridView();
+            this.lunchBtn = new System.Windows.Forms.Button();
+            this.breakfastBtn = new System.Windows.Forms.Button();
+            this.dinnerBtn = new System.Windows.Forms.Button();
+            this.snackBtn = new System.Windows.Forms.Button();
+            this.allBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.SuspendLayout();
             // 
             // monthCalendar1
@@ -155,6 +57,7 @@
             this.monthCalendar1.Location = new System.Drawing.Point(62, 77);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 0;
+            this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
             // 
             // panel1
             // 
@@ -167,6 +70,12 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.allBtn);
+            this.panel2.Controls.Add(this.snackBtn);
+            this.panel2.Controls.Add(this.dinnerBtn);
+            this.panel2.Controls.Add(this.breakfastBtn);
+            this.panel2.Controls.Add(this.lunchBtn);
+            this.panel2.Controls.Add(this.dataView);
             this.panel2.Controls.Add(this.kcalLabel);
             this.panel2.Controls.Add(this.hydroLabel);
             this.panel2.Controls.Add(this.proteinLabel);
@@ -175,276 +84,17 @@
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.tabControl1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(354, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(620, 457);
             this.panel2.TabIndex = 2;
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(28, 77);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(563, 307);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.listView1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(555, 277);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "아침";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.HideSelection = false;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem9,
-            listViewItem10});
-            this.listView1.Location = new System.Drawing.Point(3, 3);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(549, 271);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "순번";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "음식 이름";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "지방";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "단백질";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "탄수화물";
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "섭취량";
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "칼로리";
-            this.columnHeader7.Width = 52;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.listView2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 26);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(555, 277);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "점심";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // listView2
-            // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader10,
-            this.columnHeader11,
-            this.columnHeader12,
-            this.columnHeader13,
-            this.columnHeader14});
-            this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView2.HideSelection = false;
-            this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem11,
-            listViewItem12});
-            this.listView2.Location = new System.Drawing.Point(3, 3);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(549, 271);
-            this.listView2.TabIndex = 1;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "순번";
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "음식 이름";
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "지방";
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.Text = "단백질";
-            // 
-            // columnHeader12
-            // 
-            this.columnHeader12.Text = "탄수화물";
-            // 
-            // columnHeader13
-            // 
-            this.columnHeader13.Text = "섭취량";
-            // 
-            // columnHeader14
-            // 
-            this.columnHeader14.Text = "칼로리";
-            this.columnHeader14.Width = 52;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.listView3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 26);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(555, 277);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "저녁";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // listView3
-            // 
-            this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader15,
-            this.columnHeader16,
-            this.columnHeader17,
-            this.columnHeader18,
-            this.columnHeader19,
-            this.columnHeader20,
-            this.columnHeader21});
-            this.listView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView3.HideSelection = false;
-            this.listView3.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem13,
-            listViewItem14});
-            this.listView3.Location = new System.Drawing.Point(0, 0);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(555, 277);
-            this.listView3.TabIndex = 1;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            this.listView3.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader15
-            // 
-            this.columnHeader15.Text = "순번";
-            // 
-            // columnHeader16
-            // 
-            this.columnHeader16.Text = "음식 이름";
-            // 
-            // columnHeader17
-            // 
-            this.columnHeader17.Text = "지방";
-            // 
-            // columnHeader18
-            // 
-            this.columnHeader18.Text = "단백질";
-            // 
-            // columnHeader19
-            // 
-            this.columnHeader19.Text = "탄수화물";
-            // 
-            // columnHeader20
-            // 
-            this.columnHeader20.Text = "섭취량";
-            // 
-            // columnHeader21
-            // 
-            this.columnHeader21.Text = "칼로리";
-            this.columnHeader21.Width = 52;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.listView4);
-            this.tabPage4.Location = new System.Drawing.Point(4, 26);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(555, 277);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "간식";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // listView4
-            // 
-            this.listView4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader22,
-            this.columnHeader23,
-            this.columnHeader24,
-            this.columnHeader25,
-            this.columnHeader26,
-            this.columnHeader27,
-            this.columnHeader28});
-            this.listView4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView4.HideSelection = false;
-            this.listView4.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem15,
-            listViewItem16});
-            this.listView4.Location = new System.Drawing.Point(0, 0);
-            this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(555, 277);
-            this.listView4.TabIndex = 1;
-            this.listView4.UseCompatibleStateImageBehavior = false;
-            this.listView4.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader22
-            // 
-            this.columnHeader22.Text = "순번";
-            // 
-            // columnHeader23
-            // 
-            this.columnHeader23.Text = "음식 이름";
-            // 
-            // columnHeader24
-            // 
-            this.columnHeader24.Text = "지방";
-            // 
-            // columnHeader25
-            // 
-            this.columnHeader25.Text = "단백질";
-            // 
-            // columnHeader26
-            // 
-            this.columnHeader26.Text = "탄수화물";
-            // 
-            // columnHeader27
-            // 
-            this.columnHeader27.Text = "섭취량";
-            // 
-            // columnHeader28
-            // 
-            this.columnHeader28.Text = "칼로리";
-            this.columnHeader28.Width = 52;
-            // 
             // kcalLabel
             // 
             this.kcalLabel.AutoSize = true;
             this.kcalLabel.Font = new System.Drawing.Font("Noto Sans KR", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.kcalLabel.Location = new System.Drawing.Point(406, 42);
+            this.kcalLabel.Location = new System.Drawing.Point(537, 38);
             this.kcalLabel.Name = "kcalLabel";
             this.kcalLabel.Size = new System.Drawing.Size(15, 17);
             this.kcalLabel.TabIndex = 15;
@@ -454,7 +104,7 @@
             // 
             this.hydroLabel.AutoSize = true;
             this.hydroLabel.Font = new System.Drawing.Font("Noto Sans KR", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.hydroLabel.Location = new System.Drawing.Point(319, 42);
+            this.hydroLabel.Location = new System.Drawing.Point(450, 38);
             this.hydroLabel.Name = "hydroLabel";
             this.hydroLabel.Size = new System.Drawing.Size(15, 17);
             this.hydroLabel.TabIndex = 14;
@@ -464,7 +114,7 @@
             // 
             this.proteinLabel.AutoSize = true;
             this.proteinLabel.Font = new System.Drawing.Font("Noto Sans KR", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.proteinLabel.Location = new System.Drawing.Point(247, 42);
+            this.proteinLabel.Location = new System.Drawing.Point(378, 38);
             this.proteinLabel.Name = "proteinLabel";
             this.proteinLabel.Size = new System.Drawing.Size(15, 17);
             this.proteinLabel.TabIndex = 13;
@@ -474,7 +124,7 @@
             // 
             this.fatLabel.AutoSize = true;
             this.fatLabel.Font = new System.Drawing.Font("Noto Sans KR", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.fatLabel.Location = new System.Drawing.Point(190, 42);
+            this.fatLabel.Location = new System.Drawing.Point(321, 38);
             this.fatLabel.Name = "fatLabel";
             this.fatLabel.Size = new System.Drawing.Size(15, 17);
             this.fatLabel.TabIndex = 12;
@@ -485,7 +135,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Noto Sans KR", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label8.ForeColor = System.Drawing.Color.DimGray;
-            this.label8.Location = new System.Drawing.Point(400, 19);
+            this.label8.Location = new System.Drawing.Point(531, 15);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 21);
             this.label8.TabIndex = 11;
@@ -496,7 +146,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Noto Sans KR", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(313, 19);
+            this.label7.Location = new System.Drawing.Point(444, 15);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 21);
             this.label7.TabIndex = 10;
@@ -507,7 +157,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Noto Sans KR", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label6.ForeColor = System.Drawing.Color.DimGray;
-            this.label6.Location = new System.Drawing.Point(241, 19);
+            this.label6.Location = new System.Drawing.Point(372, 15);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 21);
             this.label6.TabIndex = 9;
@@ -518,11 +168,74 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Noto Sans KR", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(184, 19);
+            this.label5.Location = new System.Drawing.Point(315, 15);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 21);
             this.label5.TabIndex = 8;
             this.label5.Text = "지방";
+            // 
+            // dataView
+            // 
+            this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataView.Location = new System.Drawing.Point(35, 135);
+            this.dataView.Name = "dataView";
+            this.dataView.RowTemplate.Height = 23;
+            this.dataView.Size = new System.Drawing.Size(550, 249);
+            this.dataView.TabIndex = 16;
+            // 
+            // lunchBtn
+            // 
+            this.lunchBtn.BackgroundImage = global::mealplan.Properties.Resources.contrast;
+            this.lunchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.lunchBtn.Location = new System.Drawing.Point(76, 96);
+            this.lunchBtn.Name = "lunchBtn";
+            this.lunchBtn.Size = new System.Drawing.Size(36, 33);
+            this.lunchBtn.TabIndex = 17;
+            this.lunchBtn.UseVisualStyleBackColor = true;
+            this.lunchBtn.Click += new System.EventHandler(this.lunchBtn_Click);
+            // 
+            // breakfastBtn
+            // 
+            this.breakfastBtn.BackgroundImage = global::mealplan.Properties.Resources.sun;
+            this.breakfastBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.breakfastBtn.Location = new System.Drawing.Point(34, 96);
+            this.breakfastBtn.Name = "breakfastBtn";
+            this.breakfastBtn.Size = new System.Drawing.Size(36, 33);
+            this.breakfastBtn.TabIndex = 21;
+            this.breakfastBtn.UseVisualStyleBackColor = true;
+            this.breakfastBtn.Click += new System.EventHandler(this.breakfastBtn_Click);
+            // 
+            // dinnerBtn
+            // 
+            this.dinnerBtn.BackgroundImage = global::mealplan.Properties.Resources.sunset;
+            this.dinnerBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.dinnerBtn.Location = new System.Drawing.Point(118, 96);
+            this.dinnerBtn.Name = "dinnerBtn";
+            this.dinnerBtn.Size = new System.Drawing.Size(36, 33);
+            this.dinnerBtn.TabIndex = 22;
+            this.dinnerBtn.UseVisualStyleBackColor = true;
+            this.dinnerBtn.Click += new System.EventHandler(this.dinnerBtn_Click);
+            // 
+            // snackBtn
+            // 
+            this.snackBtn.BackgroundImage = global::mealplan.Properties.Resources.moon;
+            this.snackBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.snackBtn.Location = new System.Drawing.Point(160, 96);
+            this.snackBtn.Name = "snackBtn";
+            this.snackBtn.Size = new System.Drawing.Size(36, 33);
+            this.snackBtn.TabIndex = 23;
+            this.snackBtn.UseVisualStyleBackColor = true;
+            this.snackBtn.Click += new System.EventHandler(this.snackBtn_Click);
+            // 
+            // allBtn
+            // 
+            this.allBtn.Location = new System.Drawing.Point(510, 106);
+            this.allBtn.Name = "allBtn";
+            this.allBtn.Size = new System.Drawing.Size(75, 23);
+            this.allBtn.TabIndex = 24;
+            this.allBtn.Text = "전체보기";
+            this.allBtn.UseVisualStyleBackColor = true;
+            this.allBtn.Click += new System.EventHandler(this.allBtn_Click);
             // 
             // UserMealPlanControl
             // 
@@ -537,11 +250,7 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -551,43 +260,6 @@
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.ColumnHeader columnHeader10;
-        private System.Windows.Forms.ColumnHeader columnHeader11;
-        private System.Windows.Forms.ColumnHeader columnHeader12;
-        private System.Windows.Forms.ColumnHeader columnHeader13;
-        private System.Windows.Forms.ColumnHeader columnHeader14;
-        private System.Windows.Forms.ListView listView3;
-        private System.Windows.Forms.ColumnHeader columnHeader15;
-        private System.Windows.Forms.ColumnHeader columnHeader16;
-        private System.Windows.Forms.ColumnHeader columnHeader17;
-        private System.Windows.Forms.ColumnHeader columnHeader18;
-        private System.Windows.Forms.ColumnHeader columnHeader19;
-        private System.Windows.Forms.ColumnHeader columnHeader20;
-        private System.Windows.Forms.ColumnHeader columnHeader21;
-        private System.Windows.Forms.ListView listView4;
-        private System.Windows.Forms.ColumnHeader columnHeader22;
-        private System.Windows.Forms.ColumnHeader columnHeader23;
-        private System.Windows.Forms.ColumnHeader columnHeader24;
-        private System.Windows.Forms.ColumnHeader columnHeader25;
-        private System.Windows.Forms.ColumnHeader columnHeader26;
-        private System.Windows.Forms.ColumnHeader columnHeader27;
-        private System.Windows.Forms.ColumnHeader columnHeader28;
         private System.Windows.Forms.Label kcalLabel;
         private System.Windows.Forms.Label hydroLabel;
         private System.Windows.Forms.Label proteinLabel;
@@ -596,5 +268,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private Oracle.ManagedDataAccess.Client.OracleCommand oracleCommand1;
+        private System.Windows.Forms.Button allBtn;
+        private System.Windows.Forms.Button snackBtn;
+        private System.Windows.Forms.Button dinnerBtn;
+        private System.Windows.Forms.Button breakfastBtn;
+        private System.Windows.Forms.Button lunchBtn;
+        private System.Windows.Forms.DataGridView dataView;
     }
 }

@@ -98,10 +98,10 @@ namespace mealplan.domain.foods.repository
                         {
                             int foodCodeName = int.Parse(result.GetString(2));
                             string foodName = result.GetString(4);
-                            int kcal = int.Parse(result.GetString(5));
-                            int carbo = int.Parse(result.GetString(6));
-                            int protein = int.Parse(result.GetString(7));
-                            int fat = int.Parse(result.GetString(8));
+                            double kcal = double.Parse(result.GetString(5));
+                            double carbo = double.Parse(result.GetString(6));
+                            double protein = double.Parse(result.GetString(7));
+                            double fat = double.Parse(result.GetString(8));
                             int nrv = int.Parse(result.GetString(9));
                             string nrvType = result.GetString(10);
 
@@ -130,10 +130,10 @@ namespace mealplan.domain.foods.repository
                         result.Read();
                         int _foodCodeName = int.Parse(result.GetString(0));
                         string foodName = result.GetString(1);
-                        int kcal = int.Parse(result.GetString(2));
-                        int carbo = int.Parse(result.GetString(3));
-                        int protein = int.Parse(result.GetString(4));
-                        int fat = int.Parse(result.GetString(5));
+                        double kcal = double.Parse(result.GetString(2));
+                        double carbo = double.Parse(result.GetString(3));
+                        double protein = double.Parse(result.GetString(4));
+                        double fat = double.Parse(result.GetString(5));
                         int nrv = int.Parse(result.GetString(6));
                         string nrvType = result.GetString(7);
 
@@ -163,10 +163,10 @@ namespace mealplan.domain.foods.repository
                         {
                             int foodCodeName = int.Parse(result.GetString(0));
                             string _foodName = result.GetString(1);
-                            int kcal = int.Parse(result.GetString(2));
-                            int carbo = int.Parse(result.GetString(3));
-                            int protein = int.Parse(result.GetString(4));
-                            int fat = int.Parse(result.GetString(5));
+                            double kcal = double.Parse(result.GetString(2));
+                            double carbo = double.Parse(result.GetString(3));
+                            double protein = double.Parse(result.GetString(4));
+                            double fat = double.Parse(result.GetString(5));
                             int nrv = int.Parse(result.GetString(6));
                             string nrvType = result.GetString(7);
                             sameNameFoods.Add(new Food(foodCodeName, _foodName, kcal, carbo, protein, fat, nrv, nrvType));

@@ -9,7 +9,7 @@ namespace mealplan.domain.foods.model
     public class Food
     {
 
-        public Food(int foodId, string name, int kcal, int carbohydrate, int protein, int fat, int nutrientReferenceValue, string nrvType)
+        public Food(int foodId, string name, double kcal, double carbohydrate, double protein, double fat, int nutrientReferenceValue, string nrvType)
         {
             FoodId = foodId;
             Name = name;
@@ -20,7 +20,7 @@ namespace mealplan.domain.foods.model
             NutrientReferenceValue = nutrientReferenceValue;
             NrvType = nrvType;
         }
-        public Food(string name, int kcal, int carbohydrate, int protein, int fat, int nutrientReferenceValue, string nrvType)
+        public Food(string name, double kcal, double carbohydrate, double protein, double fat, int nutrientReferenceValue, string nrvType)
         {
             Name = name;
             Kcal = kcal;
@@ -34,10 +34,10 @@ namespace mealplan.domain.foods.model
 
         public int FoodId { get; set; }//CodeName
         public string Name { get; set; }
-        public int Kcal {  get; set; }
-        public int Carbohydrate {  get; set; }
-        public int Protein { get; set; }
-        public int Fat {  get; set; }
+        public double Kcal {  get; set; }
+        public double Carbohydrate {  get; set; }
+        public double Protein { get; set; }
+        public double Fat {  get; set; }
         public int NutrientReferenceValue { get; set; }
         public string NrvType { get; set; }
 

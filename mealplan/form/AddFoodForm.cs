@@ -27,15 +27,22 @@ namespace mealplan.form
         private void button1_Click(object sender, EventArgs e)
         {
             string _foodName = foodName.Text;
-            int _kcal = int.Parse(kcal.Text);
-            int _carbo = int.Parse(carbo.Text);
-            int _protein = int.Parse(protein.Text);
-            int _fat = int.Parse(fat.Text);
+            double _kcal = double.Parse(kcal.Text);
+            double _carbo = double.Parse(carbo.Text);
+            double _protein = double.Parse(protein.Text);
+            double _fat = double.Parse(fat.Text);
             int _nrv = int.Parse(nrv.Text);
             string _nrvType = nrvType.Text;
 
             Food food = new Food(_foodName, _kcal, _carbo, _protein, _fat, _nrv, _nrvType);
-            foodService.saveFood(food);
+            if(foodService.saveFood(food))
+            {
+                MessageBox.Show("등록되었습니다.");
+                this.Close();
+            } else
+            {
+                MessageBox.Show("등록 실패 -> 다시 입력해주세요.");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
