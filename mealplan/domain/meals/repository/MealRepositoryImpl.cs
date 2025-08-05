@@ -424,11 +424,17 @@ namespace mealplan.domain.meals.repository
                 {
                     using (OracleDataReader result = cmd.ExecuteReader())
                     {
-                        result.Read();
 
-                        int codeName = int.Parse(result.GetString(0));
-                        int codeSeq = int.Parse(result.GetString(1));
-                        return new int[] { codeName, codeSeq };
+                        // 만약 없으면 데이터가 없다는거.. 그러니까 일단 기본값 -1 한 값 주자.
+                        if(result.Read())
+                        {
+                            int codeName = int.Parse(result.GetString(0));
+                            int codeSeq = int.Parse(result.GetString(1));
+                            return new int[] { codeName, codeSeq };
+                        }
+
+                        
+                        return new int[] { 10000, 0 };
                     }
                 }
 
@@ -454,11 +460,17 @@ namespace mealplan.domain.meals.repository
                 {
                     using (OracleDataReader result = cmd.ExecuteReader())
                     {
-                        result.Read();
 
-                        int codeName = int.Parse(result.GetString(0));
-                        int codeSeq = int.Parse(result.GetString(1));
-                        return new int[] { codeName, codeSeq };
+                        // 만약 없으면 데이터가 없다는거.. 그러니까 일단 기본값 -1 한 값 주자.
+                        if (result.Read())
+                        {
+                            int codeName = int.Parse(result.GetString(0));
+                            int codeSeq = int.Parse(result.GetString(1));
+                            return new int[] { codeName, codeSeq };
+                        }
+
+
+                        return new int[] { 30000, 0 };
                     }
                 }
 

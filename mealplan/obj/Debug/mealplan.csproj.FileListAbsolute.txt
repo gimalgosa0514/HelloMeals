@@ -81,3 +81,4 @@ C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.custom.TodayP
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.custom.UserMealPlanControl.resources
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.form.AddFoodForm.resources
 C:\Users\ibs\Desktop\test_two\mealplan\mealplan\obj\Debug\mealplan.form.AddMealFoodForm.resources
+C:\Users\gimal\OneDrive\바탕 화면\HelloMeals\mealplan\obj\Debug\mealplan.form.AddMealFoodForm.resources
