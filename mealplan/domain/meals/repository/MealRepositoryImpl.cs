@@ -30,21 +30,26 @@ namespace mealplan.domain.meals.repository
             {
 
                 //일단 CodeName이랑 CodeSeq 늘려줘야하니깐 받아옴
-                int[] pks = GetLastCodeNameAndCodeSeq();
-                int mealCodeName = pks[0] + 1;
-                int mealCodeSeq = pks[1] + 1;
+                int mealCodeName = GetMealsLastCodeName() + 1;
+                
 
                 using(OracleConnection conn = oracleUtil.GetConnection())
                 {
-                    string sql = @"INSERT INTO SYS_SYSTEM_CODE_DATA_KHM
-                                   (PLANT, TABLE_NAME, CODE_NAME, CODE_SEQ, DESCRIPTION, CODE_GROUP1, CODE_GROUP2)
-                                   VALUES
-                                   ('MealPlan', 'Meals', :codeName, :codeSeq, :userId, :mealType, to_date(sysdate))";
+                    string sql = @"
+                                INSERT ALL
+                                    INTO SYS_SYSTEM_CODE_DATA_KHM
+                                    VALUES('MealPlan2','Meals',:mealCodeName, 1, :userId,)
+                                    INTO SYS_SYSTEM_CODE_DATA_KHM
+                                    VALUES('MealPlan2','Meals',:mealCodeName, 2, :mealType,)
+                                    INTO SYS_SYSTEM_CODE_DATA_KHM
+                                    VALUES('MealPlan2','Meals',:mealCodeName, 3, to_date(sysdate),)
+                                SELECT * FROM DUAL;
+";
 
                     using (OracleCommand cmd = new OracleCommand(sql, conn))
                     {
+                        cmd.BindByName = true;
                         cmd.Parameters.Add("codeName", mealCodeName);
-                        cmd.Parameters.Add("codeSeq", mealCodeSeq);
                         cmd.Parameters.Add("userId", meal.LoginId);
                         cmd.Parameters.Add("mealType", meal.MealType);
 
@@ -65,12 +70,20 @@ namespace mealplan.domain.meals.repository
             using (OracleConnection conn = oracleUtil.GetConnection())
             {
 
-                string sql = @"SELECT * FROM SYS_SYSTEM_CODE_DATA_KHM
-                               WHERE PLANT='MealPlan' AND
-                               TABLE_NAME = 'Meals' AND
-                               DESCRIPTION=:userId AND
-                               CODE_GROUP1=:mealType AND
-                               CODE_GROUP2=to_date(sysdate)";
+                string sql = @"
+                            SELECT mid.CODE_NAME,mid.DESCRIPTION ,mtype.DESCRIPTION, created.DESCRIPTION
+                            FROM SYS_SYSTEM_CODE_DATA_KHM mid
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM mtype
+                                ON mtype.CODE_NAME = mid.CODE_NAME AND mtype.CODE_SEQ = 2
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM created
+                                ON created.CODE_NAME = mid.CODE_NAME AND created.CODE_SEQ = 3
+                            WHERE mid.PLANT='MealPlan2' 
+                            AND mid.TABLE_NAME='Meals'
+                            AND mid.DESCRIPTION=:userId 
+                            AND mid.CODE_SEQ=1 
+                            AND mtype.DESCRIPTION=:mealType
+                            AND created.DESCRIPTION=to_date(sysdate)
+                            ";
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
@@ -332,12 +345,20 @@ namespace mealplan.domain.meals.repository
             {
               
                 
-                string sql = @"SELECT CODE_NAME FROM SYS_SYSTEM_CODE_DATA_KHM
-                               WHERE PLANT='MealPlan' AND 
-                               TABLE_NAME='Meals' AND
-                               DESCRIPTION=:userId AND
-                               CODE_GROUP1=:mealType AND
-                               CODE_GROUP2=to_date(sysdate)";
+                string sql = @"
+                            SELECT userId.CODE_NAME
+                            FROM SYS_SYSTEM_CODE_DATA_KHM userId
+                                 JOIN SYS_SYSTEM_CODE_DATA_KHM mtype
+                                 ON mtype.CODE_NAME = userId.CODE_NAME AND mtype.CODE_SEQ=2
+                                 JOIN SYS_SYSTEM_CODE_DATA_KHM created
+                                 ON created.CODE_NAME = userId.CODE_NAME AND created.CODE_SEQ=3
+                            WHERE userId.PLANT= 'MealPlan2' AND
+                                  userId.TABLE_NAME='Meals' AND
+                                  userId.CODE_SEQ=1
+                                  userId.DESCRIPTION=:userId AND
+                                  created.DESCRIPTION=to_char(sysdate,'YY/MM/DD') AND 
+                                  mtype.DESCRIPTION=:mealType
+                            ";
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
@@ -357,6 +378,16 @@ namespace mealplan.domain.meals.repository
                 sql = @"INSERT INTO SYS_SYSTEM_CODE_DATA_KHM 
                         (PLANT, TABLE_NAME, CODE_NAME, CODE_SEQ, DESCRIPTION, CODE_GROUP1, CODE_GROUP2)
                         VALUES('MealPlan', 'Meal_Foods', :mealFoodCodeName, :mealFoodCodeSeq, :mealCodeName, :foodCodeName, :amount)";
+                sql = @"
+                        INSERT ALL
+                            INTO SYS_SYSTEM_CODE_DATA_KHM
+                            VALUES('MealPlan2', 'Meal_Foods', :mealFoodCodeName, 1, :mealCodeName , null, null, null, null, null, null, null, null, null, null, null)
+                            INTO SYS_SYSTEM_CODE_DATA_KHM
+                            VALUES('MealPlan2', 'Meal_Foods', :mealFoodCodeName, 2, :foodCodeName, null, null, null, null, null, null, null, null, null, null, null)
+                            INTO SYS_SYSTEM_CODE_DATA_KHM
+                            VALUES('MealPlan2', 'Meal_Foods', :mealFoodCodeName, 3, '1', :amount ,null, null, null, null, null, null, null, null, null, null, null)
+                        SELECT * FROM DUAL
+";
 
                 //하.. 넣기 전에 MealFoodCodeName이랑 MealFoodCodeSeq도 알아내야함.
                 int[] pks = GetLastCodeNameAndCodeSeqForMealFood();
@@ -405,36 +436,31 @@ namespace mealplan.domain.meals.repository
 
 
 
-        public int[] GetLastCodeNameAndCodeSeq()
+        public int GetMealsLastCodeName()
         {
             using (OracleConnection conn = oracleUtil.GetConnection())
             {
                 // 일단 마지막 찾아야겠지... USer랑은 다르게 CODE_NAME도 동적으로 줘야하기 땜시롱 가져옴
                 // 이거 걍 메서드로 빼자
-                string sql = @"SELECT CODE_NAME, CODE_SEQ
-                               FROM (
-                                SELECT CODE_NAME, CODE_SEQ
-                                FROM SYS_SYSTEM_CODE_DATA_KHM
-                                WHERE 
-                                PLANT='MealPlan' AND 
-                                TABLE_NAME='Meals'
-                                ORDER BY CODE_SEQ DESC)
-                               WHERE ROWNUM = 1";
+                string sql = @"
+                            SELECT CODE_NAME 
+                            FROM (SELECT CODE_NAME 
+                                   FROM SYS_SYSTEM_CODE_DATA_KHM
+                                   WHERE PLANT='MealPlan2' AND TABLE_NAME='Meals'
+                                   ORDER BY CODE_NAME DESC)
+                            WHERE ROWNUM = 1";
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
                     using (OracleDataReader result = cmd.ExecuteReader())
                     {
-
-                        // 만약 없으면 데이터가 없다는거.. 그러니까 일단 기본값 -1 한 값 주자.
                         if(result.Read())
                         {
-                            int codeName = int.Parse(result.GetString(0));
-                            int codeSeq = int.Parse(result.GetString(1));
-                            return new int[] { codeName, codeSeq };
+                            return int.Parse(result.GetString(0));
                         }
+                        return 10000;
 
                         
-                        return new int[] { 10000, 0 };
+
                     }
                 }
 

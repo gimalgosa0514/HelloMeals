@@ -12,6 +12,8 @@ INSERT ALL
     VALUES ('MealPlan2','Users','user1',5,'180',null,null,null,null,null,null,null,null,null,null,null)
     INTO SYS_SYSTEM_CODE_DATA_KHM
     VALUES ('MealPlan2','Users','user1',6,'75',null,null,null,null,null,null,null,null,null,null,null)
+    INTO SYS_SYSTEM_CODE_DATA_KHM
+    VALUES ('MealPlan2','Users','user1',7,'990514',null,null,null,null,null,null,null,null,null,null,null)
 SELECT * FROM DUAL;
 INSERT ALL
     INTO SYS_SYSTEM_CODE_DATA_KHM
@@ -25,7 +27,7 @@ INSERT ALL
     INTO SYS_SYSTEM_CODE_DATA_KHM
     VALUES ('MealPlan2','Users','user2',5,'180',null,null,null,null,null,null,null,null,null,null,null)
     INTO SYS_SYSTEM_CODE_DATA_KHM
-    VALUES ('MealPlan2','Users','user1',6,'75',null,null,null,null,null,null,null,null,null,null,null)
+    VALUES ('MealPlan2','Users','user2',6,'75',null,null,null,null,null,null,null,null,null,null,null)
 SELECT * FROM DUAL;
 
 -- 음식 100개 삽입 가보자.
@@ -2131,3 +2133,26 @@ INSERT ALL
         (PLANT, TABLE_NAME, CODE_NAME, CODE_SEQ, DESCRIPTION, CODE_GROUP1, CODE_GROUP2, CODE_GROUP3, CODE_GROUP4, CODE_GROUP5, EXP_DESCRIPTION)
         VALUES ('MealPlan2', 'Foods', '20100', 7, '인분', null, null, null, null, null, null)
 SELECT * FROM DUAL;
+
+
+-- 이제 식단 삽입.
+INSERT ALL
+    INTO SYS_SYSTEM_CODE_DATA_KHM
+    VALUES('MealPlan2', 'Meals', '10001', 1, 'user1', null, null, null, null, null, null, null, null, null, null, null)
+    INTO SYS_SYSTEM_CODE_DATA_KHM
+    VALUES('MealPlan2', 'Meals', '10001', 2, '아침', null, null, null, null, null, null, null, null, null, null, null)
+    INTO SYS_SYSTEM_CODE_DATA_KHM
+    VALUES('MealPlan2', 'Meals', '10001', 3, to_date(sysdate), null, null, null, null, null, null, null, null, null, null, null)
+SELECT * FROM DUAL;
+
+-- 식단 음식 삽입
+INSERT ALL
+    INTO SYS_SYSTEM_CODE_DATA_KHM
+    VALUES('MealPlan2', 'Meal_Foods', '30001', 1, '10001', null, null, null, null, null, null, null, null, null, null, null)
+    INTO SYS_SYSTEM_CODE_DATA_KHM
+    VALUES('MealPlan2', 'Meal_Foods', '30001', 2, '20001', null, null, null, null, null, null, null, null, null, null, null)
+    INTO SYS_SYSTEM_CODE_DATA_KHM
+    VALUES('MealPlan2', 'Meal_Foods', '30001', 3, '1', null, null, null, null, null, null, null, null, null, null, null)
+SELECT * FROM DUAL;
+    
+

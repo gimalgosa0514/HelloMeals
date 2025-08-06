@@ -27,7 +27,7 @@ namespace mealplan.domain.foods.repository
         {
             using(OracleConnection conn = oracleUtil.GetConnection())
             {
-                string sql = @"DELETE FROM SYS_SYSTEM_CODE_DATA_KHM WHERE CODE_NAME=:foodCodeName";
+                string sql = @"DELETE FROM SYS_SYSTEM_CODE_DATA_KHM WHERE CODE_NAME=:foodCodeName AND PLANT='MealPlan2' AND TABLE_NAME= 'Foods'";
                 using(OracleCommand cmd = new OracleCommand(sql,conn))
                 {
                     cmd.Parameters.Add("foodCodeName", foodCodeName);
@@ -43,25 +43,37 @@ namespace mealplan.domain.foods.repository
 
         public bool insertFood(Food food)
         {
-            int[] pks = GetLastCodeNameAndCodeSeq();
+
+            // PK 찾아주고.
+            int codeName = GetFoodsLastCodeName()+1;
             using (OracleConnection conn = oracleUtil.GetConnection())
             {
-                // 일단 마지막 찾아야겠지... USer랑은 다르게 CODE_NAME도 동적으로 줘야하기 땜시롱 가져옴
-                // 이거 걍 메서드로 빼자
-
-                // pk들
-                int codeName = pks[0]+1;
-                int codeSeq = pks[1]+1;
 
 
-                string sql = @"INSERT INTO SYS_SYSTEM_CODE_DATA_KHM
-                             (PLANT, TABLE_NAME, CODE_NAME, CODE_SEQ, DESCRIPTION, CODE_GROUP1, CODE_GROUP2, CODE_GROUP3, CODE_GROUP4,CODE_GROUP5,EXP_DESCRIPTION)
-                             VALUES ('MealPlan', 'Foods', :codeName, :codeSeq, :foodName,:kcal,:carbo,:protein,:fat,:nrv,:nrvType)";
+
+                string sql = @"
+                            INSERT ALL
+                                INTO SYS_SYSTEM_CODE_DATA_KHM
+                                VALUES('MealPlan2', 'Foods', :codeName, 1,:foodName, null, null, null, null, null, null, null, null, null, null, null)
+                                INTO SYS_SYSTEM_CODE_DATA_KHM
+                                VALUES('MealPlan2', 'Foods', :codeName, 2,:kcal, null, null, null, null, null, null, null, null, null, null, null)
+                                INTO SYS_SYSTEM_CODE_DATA_KHM
+                                VALUES('MealPlan2', 'Foods', :codeName, 3,:carbo, null, null, null, null, null, null, null, null, null, null, null)
+                                INTO SYS_SYSTEM_CODE_DATA_KHM
+                                VALUES('MealPlan2', 'Foods', :codeName, 4,:protein, null, null, null, null, null, null, null, null, null, null, null)
+                                INTO SYS_SYSTEM_CODE_DATA_KHM
+                                VALUES('MealPlan2', 'Foods', :codeName, 5,:fat, null, null, null, null, null, null, null, null, null, null, null)
+                                INTO SYS_SYSTEM_CODE_DATA_KHM
+                                VALUES('MealPlan2', 'Foods', :codeName, 6,:nrv, null, null, null, null, null, null, null, null, null, null, null)
+                                INTO SYS_SYSTEM_CODE_DATA_KHM
+                                VALUES('MealPlan2', 'Foods', :codeName, 7,:nrvType, null, null, null, null, null, null, null, null, null, null, null)
+                            SELECT * FROM DUAL
+                            ";
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
+                    cmd.BindByName = true;
                     cmd.Parameters.Add("codeName", codeName);
-                    cmd.Parameters.Add("codeSeq", codeSeq);
                     cmd.Parameters.Add("foodName", food.Name);
                     cmd.Parameters.Add("kcal", food.Kcal);
                     cmd.Parameters.Add("carbo", food.Carbohydrate);
@@ -86,7 +98,23 @@ namespace mealplan.domain.foods.repository
         {
             using (OracleConnection conn = oracleUtil.GetConnection())
             {
-                string sql = "SELECT * FROM SYS_SYSTEM_CODE_DATA_KHM WHERE PLANT='MealPlan' AND TABLE_NAME='Foods'";
+                string sql = @"
+                            SELECT fname.CODE_NAME, fname.DESCRIPTION, kcal.DESCRIPTION, carbo.DESCRIPTION, protein.DESCRIPTION, fat.DESCRIPTION, nrv.DESCRIPTION, nrv_type.DESCRIPTION
+                            FROM SYS_SYSTEM_CODE_DATA_KHM fname
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM kcal
+                                ON kcal.CODE_NAME  = fname.CODE_NAME AND kcal.CODE_SEQ = 2
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM carbo
+                                ON carbo.CODE_NAME  = fname.CODE_NAME AND carbo.CODE_SEQ = 3
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM protein
+                                ON protein.CODE_NAME  = fname.CODE_NAME AND protein.CODE_SEQ = 4
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM fat
+                                ON fat.CODE_NAME  = fname.CODE_NAME AND fat.CODE_SEQ = 5
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM nrv
+                                ON nrv.CODE_NAME  = fname.CODE_NAME AND nrv.CODE_SEQ = 6
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM nrv_type
+                                ON nrv_type.CODE_NAME  = fname.CODE_NAME AND nrv_type.CODE_SEQ = 7
+                            WHERE fname.PLANT='MealPlan2' AND fname.TABLE_NAME = 'Foods' AND fname.CODE_SEQ = 1
+                            ORDER BY fname.CODE_NAME ASC";
 
                 using (OracleCommand oracleCommand = new OracleCommand(sql, conn))
                 {
@@ -96,14 +124,14 @@ namespace mealplan.domain.foods.repository
 
                         while (result.Read())
                         {
-                            int foodCodeName = int.Parse(result.GetString(2));
-                            string foodName = result.GetString(4);
-                            double kcal = double.Parse(result.GetString(5));
-                            double carbo = double.Parse(result.GetString(6));
-                            double protein = double.Parse(result.GetString(7));
-                            double fat = double.Parse(result.GetString(8));
-                            int nrv = int.Parse(result.GetString(9));
-                            string nrvType = result.GetString(10);
+                            int foodCodeName = int.Parse(result.GetString(0));
+                            string foodName = result.GetString(1);
+                            double kcal = double.Parse(result.GetString(2));
+                            double carbo = double.Parse(result.GetString(3));
+                            double protein = double.Parse(result.GetString(4));
+                            double fat = double.Parse(result.GetString(5));
+                            int nrv = int.Parse(result.GetString(6));
+                            string nrvType = result.GetString(7);
 
                             foods.Add(new Food(foodCodeName,foodName,kcal,carbo,protein,fat,nrv,nrvType));
                         }
@@ -117,9 +145,23 @@ namespace mealplan.domain.foods.repository
         {
             using (OracleConnection conn = oracleUtil.GetConnection())
             {
-                string sql = @"SELECT CODE_NAME, DESCRIPTION, CODE_GROUP1, CODE_GROUP2, CODE_GROUP3, CODE_GROUP4, CODE_GROUP5, EXP_DESCRIPTION
-                               FROM SYS_SYSTEM_CODE_DATA_KHM
-                               WHERE CODE_NAME=:foodCodeName";
+                string sql = @"
+                            SELECT fname.CODE_NAME, fname.DESCRIPTION, kcal.DESCRIPTION, carbo.DESCRIPTION, protein.DESCRIPTION, fat.DESCRIPTION, nrv.DESCRIPTION, nrv_type.DESCRIPTION
+                            FROM SYS_SYSTEM_CODE_DATA_KHM fname
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM kcal
+                                ON kcal.CODE_NAME  = fname.CODE_NAME AND kcal.CODE_SEQ = 2
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM carbo
+                                ON carbo.CODE_NAME  = fname.CODE_NAME AND carbo.CODE_SEQ = 3
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM protein
+                                ON protein.CODE_NAME  = fname.CODE_NAME AND protein.CODE_SEQ = 4
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM fat
+                                ON fat.CODE_NAME  = fname.CODE_NAME AND fat.CODE_SEQ = 5
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM nrv
+                                ON nrv.CODE_NAME  = fname.CODE_NAME AND nrv.CODE_SEQ = 6
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM nrv_type
+                                ON nrv_type.CODE_NAME  = fname.CODE_NAME AND nrv_type.CODE_SEQ = 7
+                            WHERE fname.PLANT='MealPlan2' AND fname.TABLE_NAME = 'Foods' AND fname.CODE_SEQ = 1 AND fname.CODE_NAME =:foodCodeName
+                            ";
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
@@ -148,9 +190,23 @@ namespace mealplan.domain.foods.repository
         {
             using (OracleConnection conn = oracleUtil.GetConnection())
             {
-                string sql = @"SELECT CODE_NAME, DESCRIPTION, CODE_GROUP1, CODE_GROUP2, CODE_GROUP3, CODE_GROUP4, CODE_GROUP5, EXP_DESCRIPTION
-                               FROM SYS_SYSTEM_CODE_DATA_KHM
-                               WHERE DESCRIPTION LIKE '%' || :foodName || '%'";
+                string sql = @"
+                            SELECT fname.CODE_NAME, fname.DESCRIPTION, kcal.DESCRIPTION, carbo.DESCRIPTION, protein.DESCRIPTION, fat.DESCRIPTION, nrv.DESCRIPTION, nrv_type.DESCRIPTION
+                            FROM SYS_SYSTEM_CODE_DATA_KHM fname
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM kcal
+                                ON kcal.CODE_NAME  = fname.CODE_NAME AND kcal.CODE_SEQ = 2
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM carbo
+                                ON carbo.CODE_NAME  = fname.CODE_NAME AND carbo.CODE_SEQ = 3
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM protein
+                                ON protein.CODE_NAME  = fname.CODE_NAME AND protein.CODE_SEQ = 4
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM fat
+                                ON fat.CODE_NAME  = fname.CODE_NAME AND fat.CODE_SEQ = 5
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM nrv
+                                ON nrv.CODE_NAME  = fname.CODE_NAME AND nrv.CODE_SEQ = 6
+                                JOIN SYS_SYSTEM_CODE_DATA_KHM nrv_type
+                                ON nrv_type.CODE_NAME  = fname.CODE_NAME AND nrv_type.CODE_SEQ = 7
+                            WHERE fname.PLANT='MealPlan2' AND fname.TABLE_NAME = 'Foods' AND fname.CODE_SEQ = 1 AND fname.DESCRIPTION LIKE '%' || :foodName || '%'
+                            ";
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
@@ -180,30 +236,27 @@ namespace mealplan.domain.foods.repository
 
 
 
-        public int[] GetLastCodeNameAndCodeSeq()
+        public int GetFoodsLastCodeName()
         {
             using (OracleConnection conn = oracleUtil.GetConnection())
             {
                 // 일단 마지막 찾아야겠지... USer랑은 다르게 CODE_NAME도 동적으로 줘야하기 땜시롱 가져옴
                 // 이거 걍 메서드로 빼자
-                string sql = @"SELECT CODE_NAME, CODE_SEQ
-                               FROM (
-                                SELECT CODE_NAME, CODE_SEQ
-                                FROM SYS_SYSTEM_CODE_DATA_KHM
-                                WHERE 
-                                PLANT='MealPlan' AND 
-                                TABLE_NAME='Foods'
-                                ORDER BY CODE_SEQ DESC)
-                               WHERE ROWNUM = 1";
+                string sql = @"
+                            SELECT CODE_NAME 
+                            FROM (SELECT CODE_NAME 
+                                   FROM SYS_SYSTEM_CODE_DATA_KHM
+                                   WHERE PLANT='MealPlan2' AND TABLE_NAME='Foods'
+                                   ORDER BY CODE_NAME DESC)
+                            WHERE ROWNUM = 1";
                 using(OracleCommand cmd = new OracleCommand(sql,conn))
                 {
                     using (OracleDataReader result = cmd.ExecuteReader())
                     {
                         result.Read();
 
-                        int codeName = int.Parse(result.GetString(0));
-                        int codeSeq = int.Parse(result.GetString(1));
-                        return new int[] { codeName, codeSeq };
+                        return int.Parse(result.GetString(0));
+                        
                     }
                 }
 

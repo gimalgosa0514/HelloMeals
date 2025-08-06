@@ -14,7 +14,5 @@ namespace mealplan.domain.foods.repository
         List<Food> selectAllFoods();
         bool insertFood(Food food);
         bool deleteFood(int foodCodeName);
-
-        int[] GetLastCodeNameAndCodeSeq();
     }
 }
