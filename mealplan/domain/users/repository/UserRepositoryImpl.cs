@@ -126,7 +126,7 @@ namespace mealplan.domain.users.repository
                 SELECT 'MealPlan', 'Users','{user.LoginId}','{lastSeq}', '{user.Password}','{user.Name}','{user.Birthdate}','{user.Gender}','{user.Height}','{user.Weight}'
                 FROM DUAL
                 WHERE NOT EXISTS
-                (SELECT CODE_NAME FROM SYS_SYSTEM_CODE_DATA_KHM WHERE CODE_NAME='{user.LoginId}')";
+                (SELECT CODE_NAME FROM SYS_SYSTEM_CODE_DATA_KHM WHERE CODE_NAME='{user.LoginId}' AND PLANT='MealPlan' AND TABLE_NAME='Users')";
                 using(OracleCommand cmd = new OracleCommand(insertSql, conn))
                 {
                     if(cmd.ExecuteNonQuery() >= 1)
