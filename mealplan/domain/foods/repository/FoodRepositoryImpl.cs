@@ -150,7 +150,10 @@ namespace mealplan.domain.foods.repository
             {
                 string sql = @"SELECT CODE_NAME, DESCRIPTION, CODE_GROUP1, CODE_GROUP2, CODE_GROUP3, CODE_GROUP4, CODE_GROUP5, EXP_DESCRIPTION
                                FROM SYS_SYSTEM_CODE_DATA_KHM
-                               WHERE DESCRIPTION LIKE '%' || :foodName || '%'";
+                               WHERE 
+                                    PLANT='MealPlan' AND 
+                                    TABLE_NAME='Foods' AND
+                                    DESCRIPTION LIKE '%' || :foodName || '%'";
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {

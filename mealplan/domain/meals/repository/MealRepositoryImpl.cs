@@ -99,28 +99,34 @@ namespace mealplan.domain.meals.repository
             using (OracleConnection conn = oracleUtil.GetConnection())
             {
 
-                string sql = @"SELECT mf.CODE_NAME AS 순번,
-                                m.CODE_GROUP1 AS 식사타입,
-                                mf.CODE_GROUP2 AS 섭취량,
-                                f.EXP_DESCRIPTION AS 섭취량타입,
-                                f.DESCRIPTION AS 음식이름,
-                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP1) as 칼로리,
-                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP2) as 탄수화물,
-                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP3) as 단백질,
-                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP4) as 지방
+                string sql = @"SELECT 
+                                    mf.CODE_NAME AS 순번,
+                                    m.CODE_GROUP1 AS 식사타입,
+                                    mf.CODE_GROUP2 AS 섭취량,
+                                    f.EXP_DESCRIPTION AS 섭취량타입,
+                                    f.DESCRIPTION AS 음식이름,
+                                    (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP1) as 칼로리,
+                                    (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP2) as 탄수화물,
+                                    (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP3) as 단백질,
+                                    (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP4) as 지방
                                FROM SYS_SYSTEM_CODE_DATA_KHM m
-                                JOIN SYS_SYSTEM_CODE_DATA_KHM mf
-                                    ON m.CODE_NAME = mf.DESCRIPTION
-                                JOIN SYS_SYSTEM_CODE_DATA_KHM f
-                                    ON mf.CODE_GROUP1 = f.CODE_NAME
-                               WHERE m.DESCRIPTION = :userId AND m.CODE_GROUP2=to_date(sysdate)
+                                    JOIN SYS_SYSTEM_CODE_DATA_KHM mf
+                                        ON m.CODE_NAME = mf.DESCRIPTION
+                                    JOIN SYS_SYSTEM_CODE_DATA_KHM f
+                                        ON mf.CODE_GROUP1 = f.CODE_NAME
+                               WHERE 
+                                    m.PLANT='MealPlan' AND
+                                    mf.PLANT='MealPlan' AND
+                                    f.PLANT='MealPlan' AND
+                                    m.DESCRIPTION = :userId AND 
+                                    m.CODE_GROUP2=to_date(sysdate)
                                ORDER BY 
-                                CASE m.CODE_GROUP1
-                                WHEN '아침' THEN 1
-                                WHEN '점심' THEN 2
-                                WHEN '저녁' THEN 3
-                                ELSE 4
-                                END";
+                                    CASE m.CODE_GROUP1
+                                    WHEN '아침' THEN 1
+                                    WHEN '점심' THEN 2
+                                    WHEN '저녁' THEN 3
+                                    ELSE 4
+                                    END";
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
@@ -155,21 +161,28 @@ namespace mealplan.domain.meals.repository
             using(OracleConnection conn = oracleUtil.GetConnection())
             {
 
-                string sql = @"SELECT mf.CODE_NAME AS 순번,
-                                m.CODE_GROUP1 AS 식사타입,
-                                mf.CODE_GROUP2 AS 섭취량,
-                                f.EXP_DESCRIPTION AS 섭취량타입,
-                                f.DESCRIPTION AS 음식이름,
-                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP1) as 칼로리,
-                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP2) as 탄수화물,
-                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP3) as 단백질,
-                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP4) as 지방
+                string sql = @"SELECT
+                                    mf.CODE_NAME AS 순번,
+                                    m.CODE_GROUP1 AS 식사타입,
+                                    mf.CODE_GROUP2 AS 섭취량,
+                                    f.EXP_DESCRIPTION AS 섭취량타입,
+                                    f.DESCRIPTION AS 음식이름,
+                                    (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP1) as 칼로리,
+                                    (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP2) as 탄수화물,
+                                    (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP3) as 단백질,
+                                    (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP4) as 지방
                                FROM SYS_SYSTEM_CODE_DATA_KHM m
-                                JOIN SYS_SYSTEM_CODE_DATA_KHM mf
-                                    ON m.CODE_NAME = mf.DESCRIPTION
-                                JOIN SYS_SYSTEM_CODE_DATA_KHM f
-                                    ON mf.CODE_GROUP1 = f.CODE_NAME
-                               WHERE m.DESCRIPTION = :userId AND m.CODE_GROUP1 = :mealType AND m.CODE_GROUP2=to_date(sysdate)";
+                                    JOIN SYS_SYSTEM_CODE_DATA_KHM mf
+                                        ON m.CODE_NAME = mf.DESCRIPTION
+                                    JOIN SYS_SYSTEM_CODE_DATA_KHM f
+                                        ON mf.CODE_GROUP1 = f.CODE_NAME
+                               WHERE 
+                                    m.PLANT='MealPlan' AND
+                                    mf.PLANT='MealPlan' AND
+                                    f.PLANT='MealPlan' AND
+                                    m.DESCRIPTION = :userId AND 
+                                    m.CODE_GROUP1 = :mealType AND 
+                                    m.CODE_GROUP2=to_date(sysdate)";
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
@@ -206,21 +219,29 @@ namespace mealplan.domain.meals.repository
             using (OracleConnection conn = oracleUtil.GetConnection())
             {
 
-                string sql = @"SELECT mf.CODE_NAME AS 순번,
-                                m.CODE_GROUP1 AS 식사타입,
-                                mf.CODE_GROUP2 AS 섭취량,
-                                f.EXP_DESCRIPTION AS 섭취량타입,
-                                f.DESCRIPTION AS 음식이름,
-                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP1) as 칼로리,
-                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP2) as 탄수화물,
-                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP3) as 단백질,
-                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP4) as 지방
-                               FROM SYS_SYSTEM_CODE_DATA_KHM m
-                                JOIN SYS_SYSTEM_CODE_DATA_KHM mf
-                                    ON m.CODE_NAME = mf.DESCRIPTION
-                                JOIN SYS_SYSTEM_CODE_DATA_KHM f
-                                    ON mf.CODE_GROUP1 = f.CODE_NAME
-                               WHERE m.DESCRIPTION = :userId AND m.CODE_GROUP1 = :mealType AND m.CODE_GROUP2=:targetDate";
+                string sql = @"SELECT 
+                                    mf.CODE_NAME AS 순번,
+                                    m.CODE_GROUP1 AS 식사타입,
+                                    mf.CODE_GROUP2 AS 섭취량,
+                                    f.EXP_DESCRIPTION AS 섭취량타입,
+                                    f.DESCRIPTION AS 음식이름,
+                                    (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP1) as 칼로리,
+                                    (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP2) as 탄수화물,
+                                    (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP3) as 단백질,
+                                    (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP4) as 지방
+                               FROM 
+                                    SYS_SYSTEM_CODE_DATA_KHM m
+                                    JOIN SYS_SYSTEM_CODE_DATA_KHM mf
+                                        ON m.CODE_NAME = mf.DESCRIPTION
+                                    JOIN SYS_SYSTEM_CODE_DATA_KHM f
+                                        ON mf.CODE_GROUP1 = f.CODE_NAME
+                               WHERE
+                                    m.PLANT='MealPlan' AND
+                                    mf.PLANT='MealPlan' AND
+                                    f.PLANT='MealPlan' AND
+                                    m.DESCRIPTION = :userId AND 
+                                    m.CODE_GROUP1 = :mealType AND 
+                                    m.CODE_GROUP2=:targetDate";
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
@@ -258,21 +279,28 @@ namespace mealplan.domain.meals.repository
             using (OracleConnection conn = oracleUtil.GetConnection())
             {
 
-                string sql = @"SELECT mf.CODE_NAME AS 순번,
-                                m.CODE_GROUP1 AS 식사타입,
-                                mf.CODE_GROUP2 AS 섭취량,
-                                f.EXP_DESCRIPTION AS 섭취량타입,
-                                f.DESCRIPTION AS 음식이름,
-                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP1) as 칼로리,
-                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP2) as 탄수화물,
-                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP3) as 단백질,
-                                (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP4) as 지방
-                               FROM SYS_SYSTEM_CODE_DATA_KHM m
-                                JOIN SYS_SYSTEM_CODE_DATA_KHM mf
-                                    ON m.CODE_NAME = mf.DESCRIPTION
-                                JOIN SYS_SYSTEM_CODE_DATA_KHM f
-                                    ON mf.CODE_GROUP1 = f.CODE_NAME
-                               WHERE m.DESCRIPTION = :userId AND m.CODE_GROUP2=:targetDate
+                string sql = @"SELECT 
+                                    mf.CODE_NAME AS 순번,
+                                    m.CODE_GROUP1 AS 식사타입,
+                                    mf.CODE_GROUP2 AS 섭취량,
+                                    f.EXP_DESCRIPTION AS 섭취량타입,
+                                    f.DESCRIPTION AS 음식이름,
+                                    (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP1) as 칼로리,
+                                    (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP2) as 탄수화물,
+                                    (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP3) as 단백질,
+                                    (mf.CODE_GROUP2/f.CODE_GROUP5) * (f.CODE_GROUP4) as 지방
+                               FROM 
+                                    SYS_SYSTEM_CODE_DATA_KHM m
+                                    JOIN SYS_SYSTEM_CODE_DATA_KHM mf
+                                        ON m.CODE_NAME = mf.DESCRIPTION
+                                    JOIN SYS_SYSTEM_CODE_DATA_KHM f
+                                        ON mf.CODE_GROUP1 = f.CODE_NAME
+                               WHERE 
+                                    m.PLANT='MealPlan' AND
+                                    mf.PLANT='MealPlan' AND
+                                    f.PLANT='MealPlan' AND
+                                    m.DESCRIPTION = :userId AND 
+                                    m.CODE_GROUP2=:targetDate
                                ORDER BY 
                                 CASE m.CODE_GROUP1
                                 WHEN '아침' THEN 1
