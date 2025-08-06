@@ -2,10 +2,10 @@
 INSERT ALL 
     INTO SYS_SYSTEM_CODE_DATA_KHM
     (PLANT, TABLE_NAME, CODE_NAME, CODE_SEQ, DESCRIPTION, CODE_GROUP1, CODE_GROUP2, CODE_GROUP3, CODE_GROUP4,CODE_GROUP5)
-    VALUES ('MealPlan', 'Users', 'user1', 1, 'pwd1234', '김사랑', '남자','177','93','USER')
+    VALUES ('MealPlan', 'Users', 'user1', 1, 'pwd1234', '김사랑', '990514','남자','177','93')
     INTO SYS_SYSTEM_CODE_DATA_KHM
     (PLANT, TABLE_NAME, CODE_NAME, CODE_SEQ, DESCRIPTION, CODE_GROUP1, CODE_GROUP2, CODE_GROUP3, CODE_GROUP4,CODE_GROUP5)
-    VALUES ('MealPlan', 'Users', 'admin', 2, 'admin1234', '관리자', '남자','180','75','ADMIN')
+    VALUES ('MealPlan', 'Users', 'user2', 2, 'pwd1234', '문종훈', '000514','여자','180','75')
     SELECT * FROM DUAL;
 
 -- 음식 데이터 100행 삽입
@@ -317,13 +317,13 @@ SELECT * FROM DUAL;
 
 INSERT ALL
     INTO SYS_SYSTEM_CODE_DATA_KHM 
-    VALUES('MealPlan','Meals', '10001',1, 'user1', '아침',to_date(sysdate,'yyyy.mm.dd'),'https://m.ftscrt.com/food/22a36519-dda1-4fcf-abd5-acbf499b9b7f_lg_sq.jpg',null,null,null,null,null,null,null,null)
+    VALUES('MealPlan','Meals', '10001',1, 'user1', '아침',to_date(sysdate,'yy/mm/dd'),null,null,null,null,null,null,null,null,null)
     INTO SYS_SYSTEM_CODE_DATA_KHM 
-    VALUES('MealPlan','Meals', '10002',2, 'user1', '점심',to_date(sysdate,'yyyy.mm.dd'),'https://m.ftscrt.com/food/22a36519-dda1-4fcf-abd5-acbf499b9b7f_lg_sq.jpg',null,null,null,null,null,null,null,null)
+    VALUES('MealPlan','Meals', '10002',2, 'user1', '점심',to_date(sysdate,'yy/mm/dd'),null,null,null,null,null,null,null,null,null)
     INTO SYS_SYSTEM_CODE_DATA_KHM 
-    VALUES('MealPlan','Meals', '10004',4, 'user1', '아침',to_date('2025/08/03','yyyy.mm.dd'),'https://m.ftscrt.com/food/22a36519-dda1-4fcf-abd5-acbf499b9b7f_lg_sq.jpg',null,null,null,null,null,null,null,null)
+    VALUES('MealPlan','Meals', '10004',4, 'user1', '아침',to_date('2025/08/03','yy/mm/dd'),null,null,null,null,null,null,null,null,null)
     INTO SYS_SYSTEM_CODE_DATA_KHM 
-    VALUES('MealPlan','Meals', '10005',5, 'user1', '점심',to_date('2025/08/03','yyyy.mm.dd'),'https://m.ftscrt.com/food/22a36519-dda1-4fcf-abd5-acbf499b9b7f_lg_sq.jpg',null,null,null,null,null,null,null,null)
+    VALUES('MealPlan','Meals', '10005',5, 'user1', '점심',to_date('2025/08/03','yy/mm/dd'),null,null,null,null,null,null,null,null,null)
 SELECT * FROM DUAL;
 
 -- 식단_음식 데이터 삽입.
@@ -335,5 +335,4 @@ INSERT ALL
     INTO SYS_SYSTEM_CODE_DATA_KHM
     VALUES('MealPlan','Meal_Foods','30003',3,'10001','20019',100,null,null,null,null,null,null,null,null,null)
 SELECT * FROM DUAL;
-
 

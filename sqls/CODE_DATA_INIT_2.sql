@@ -1,19 +1,19 @@
 -- 유저 2명 삽입..
 INSERT ALL
     INTO SYS_SYSTEM_CODE_DATA_KHM
-    VALUES ('MealPlan2','Users','user1',1,'user1',null,null,null,null,null,null,null,null,null,null,null)
+    VALUES ('MealPlan2','Users','test1234',1,'test1234',null,null,null,null,null,null,null,null,null,null,null)
     INTO SYS_SYSTEM_CODE_DATA_KHM
     VALUES ('MealPlan2','Users','user1',2,'pwd1234',null,null,null,null,null,null,null,null,null,null,null)
     INTO SYS_SYSTEM_CODE_DATA_KHM
-    VALUES ('MealPlan2','Users','user1',3,'김사랑',null,null,null,null,null,null,null,null,null,null,null)
+    VALUES ('MealPlan2','Users','user1',3,'김희망',null,null,null,null,null,null,null,null,null,null,null)
     INTO SYS_SYSTEM_CODE_DATA_KHM
-    VALUES ('MealPlan2','Users','user1',4,'남자',null,null,null,null,null,null,null,null,null,null,null)
+    VALUES ('MealPlan2','Users','user1',4,'990514',null,null,null,null,null,null,null,null,null,null,null)
     INTO SYS_SYSTEM_CODE_DATA_KHM
     VALUES ('MealPlan2','Users','user1',5,'180',null,null,null,null,null,null,null,null,null,null,null)
     INTO SYS_SYSTEM_CODE_DATA_KHM
     VALUES ('MealPlan2','Users','user1',6,'75',null,null,null,null,null,null,null,null,null,null,null)
     INTO SYS_SYSTEM_CODE_DATA_KHM
-    VALUES ('MealPlan2','Users','user1',7,'990514',null,null,null,null,null,null,null,null,null,null,null)
+    VALUES ('MealPlan2','Users','user1',7,'남자',null,null,null,null,null,null,null,null,null,null,null)
 SELECT * FROM DUAL;
 INSERT ALL
     INTO SYS_SYSTEM_CODE_DATA_KHM
@@ -23,11 +23,13 @@ INSERT ALL
     INTO SYS_SYSTEM_CODE_DATA_KHM
     VALUES ('MealPlan2','Users','user2',3,'김사랑',null,null,null,null,null,null,null,null,null,null,null)
     INTO SYS_SYSTEM_CODE_DATA_KHM
-    VALUES ('MealPlan2','Users','user2',4,'남자',null,null,null,null,null,null,null,null,null,null,null)
     INTO SYS_SYSTEM_CODE_DATA_KHM
-    VALUES ('MealPlan2','Users','user2',5,'180',null,null,null,null,null,null,null,null,null,null,null)
+    VALUES ('MealPlan2','Users','user1',4,'001123',null,null,null,null,null,null,null,null,null,null,null)
+    VALUES ('MealPlan2','Users','user2',5,'여자',null,null,null,null,null,null,null,null,null,null,null)
     INTO SYS_SYSTEM_CODE_DATA_KHM
-    VALUES ('MealPlan2','Users','user2',6,'75',null,null,null,null,null,null,null,null,null,null,null)
+    VALUES ('MealPlan2','Users','user2',6,'163',null,null,null,null,null,null,null,null,null,null,null)
+    INTO SYS_SYSTEM_CODE_DATA_KHM
+    VALUES ('MealPlan2','Users','user2',7,'49',null,null,null,null,null,null,null,null,null,null,null)
 SELECT * FROM DUAL;
 
 -- 음식 100개 삽입 가보자.
