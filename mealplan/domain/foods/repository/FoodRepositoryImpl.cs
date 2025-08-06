@@ -113,8 +113,16 @@ namespace mealplan.domain.foods.repository
                                 ON nrv.CODE_NAME  = fname.CODE_NAME AND nrv.CODE_SEQ = 6
                                 JOIN SYS_SYSTEM_CODE_DATA_KHM nrv_type
                                 ON nrv_type.CODE_NAME  = fname.CODE_NAME AND nrv_type.CODE_SEQ = 7
-                            WHERE fname.PLANT='MealPlan2' AND fname.TABLE_NAME = 'Foods' AND fname.CODE_SEQ = 1
-                            ORDER BY fname.CODE_NAME ASC";
+                            WHERE 
+                                fname.PLANT='MealPlan2' AND fname.TABLE_NAME = 'Foods' AND fname.CODE_SEQ = 1 AND
+                                kcal.PLANT='MealPlan2' AND 
+                                carbo.PLANT='MealPlan2' AND
+                                protein.PLANT='MealPlan2' AND
+                                fat.PLANT='MealPlan2' AND
+                                nrv.PLANT='MealPlan2' AND
+                                nrv_type.PLANT='MealPlan2'
+                            ORDER BY fname.CODE_NAME ASC
+                            ";
 
                 using (OracleCommand oracleCommand = new OracleCommand(sql, conn))
                 {
@@ -160,7 +168,13 @@ namespace mealplan.domain.foods.repository
                                 ON nrv.CODE_NAME  = fname.CODE_NAME AND nrv.CODE_SEQ = 6
                                 JOIN SYS_SYSTEM_CODE_DATA_KHM nrv_type
                                 ON nrv_type.CODE_NAME  = fname.CODE_NAME AND nrv_type.CODE_SEQ = 7
-                            WHERE fname.PLANT='MealPlan2' AND fname.TABLE_NAME = 'Foods' AND fname.CODE_SEQ = 1 AND fname.CODE_NAME =:foodCodeName
+                            WHERE fname.PLANT='MealPlan2' AND fname.TABLE_NAME = 'Foods' AND fname.CODE_SEQ = 1 AND fname.CODE_NAME =:foodCodeName AND
+                                kcal.PLANT='MealPlan2' AND 
+                                carbo.PLANT='MealPlan2' AND
+                                protein.PLANT='MealPlan2' AND
+                                fat.PLANT='MealPlan2' AND
+                                nrv.PLANT='MealPlan2' AND
+                                nrv_type.PLANT='MealPlan2'
                             ";
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
@@ -205,7 +219,13 @@ namespace mealplan.domain.foods.repository
                                 ON nrv.CODE_NAME  = fname.CODE_NAME AND nrv.CODE_SEQ = 6
                                 JOIN SYS_SYSTEM_CODE_DATA_KHM nrv_type
                                 ON nrv_type.CODE_NAME  = fname.CODE_NAME AND nrv_type.CODE_SEQ = 7
-                            WHERE fname.PLANT='MealPlan2' AND fname.TABLE_NAME = 'Foods' AND fname.CODE_SEQ = 1 AND fname.DESCRIPTION LIKE '%' || :foodName || '%'
+                            WHERE fname.PLANT='MealPlan2' AND fname.TABLE_NAME = 'Foods' AND fname.CODE_SEQ = 1 AND fname.DESCRIPTION LIKE '%' || :foodName || '%' AND
+                                kcal.PLANT='MealPlan2' AND 
+                                carbo.PLANT='MealPlan2' AND
+                                protein.PLANT='MealPlan2' AND
+                                fat.PLANT='MealPlan2' AND
+                                nrv.PLANT='MealPlan2' AND
+                                nrv_type.PLANT='MealPlan2'
                             ";
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))

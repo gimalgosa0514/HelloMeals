@@ -70,7 +70,14 @@ namespace mealplan.domain.users.repository
                                         ON height.CODE_NAME = userId.CODE_NAME AND height.CODE_SEQ=6
                                     JOIN SYS_SYSTEM_CODE_DATA_KHM weight
                                         ON weight.CODE_NAME = userId.CODE_NAME AND weight.CODE_SEQ=7
-                                WHERE userId.PLANT='MealPlan2' AND userId.TABLE_NAME= 'Users' AND userId.CODE_NAME =:userId AND userId.CODE_SEQ = 1";
+                                WHERE userId.PLANT='MealPlan2' AND userId.TABLE_NAME= 'Users' AND userId.CODE_NAME =:userId AND userId.CODE_SEQ = 1 AND
+                                      pwd.PLANT='MealPlan2' AND
+                                      name.PLANT='MealPlan2' AND
+                                      gender.PLANT='MealPlan2' AND
+                                      birthdate.PLANT='MealPlan2' AND
+                                      height.PLANT='MealPlan2' AND
+                                      weight.PLANT='MealPlan2'
+                                ";
 
                 // 2.쿼리문 넣어서 OracleCommand 객체 맹글어줌.
                 using (OracleCommand oracleCommand = new OracleCommand(sql, conn))
