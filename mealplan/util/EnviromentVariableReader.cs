@@ -23,8 +23,7 @@ namespace mealplan.util
                     Environment.SetEnvironmentVariable(lineArr[0], lineArr[1]);
                     line = sr.ReadLine();
                 }
-            }
-           
+            }  
         }
     }
 }
