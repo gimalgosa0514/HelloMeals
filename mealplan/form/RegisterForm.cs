@@ -39,24 +39,26 @@ namespace mealplan.form
             string _inputPassword = inputPassword.Text;
             string _gender = genderMale.Checked ? "남자" : "여자";
             string _birthDate = inputBirthdate.Text;
-
+            string _height = inputHeight.Text;
+            string _weight = inputWeight.Text;
 
             // 입력들이 모두 유효한지? 체크.
             bool isValid = true;
             foreach(TextBox tb in panel1.Controls.OfType<TextBox>())
             {
                 isValid = inputValidation(tb);
+                // 유효하지 않다? 그럼 끝냄.
+                if (!isValid)
+                {
+                    return;
+                }
             }
 
-            // 유효하지 않다? 그럼 끝냄.
-            if(!isValid)
-            {
-                return;
-            }
+
 
             try
             {
-                if (userService.Regist(new User(_inputId, _inputPassword, _inputName, _gender, _birthDate, "155", "79")))
+                if (userService.Regist(new User(_inputId, _inputPassword, _inputName, _gender, _birthDate, _height, _weight)))
                 {
                     this.Close();
                 }
@@ -78,9 +80,11 @@ namespace mealplan.form
                 case "inputId": inputType = "아이디"; break;
                 case "inputPassword": inputType = "비밀번호"; break;
                 case "inputBirthdate": inputType = "생년월일"; break;
+                case "inputHeight": inputType = "키"; break;
+                case "inputWeight": inputType = "몸무게"; break;
             }
             if(tb.Text.Equals(tb.Tag.ToString())) {
-                MessageBox.Show(inputType + SystemMessage.WELCOME_MESSAGE);
+                MessageBox.Show(inputType + SystemMessage.INPUT_CHECK_MESSAGE);
                 return false;
             }
             return true;

@@ -37,8 +37,8 @@ namespace mealplan.domain.users.repository
                             string loginId = result.GetString(2);
                             string password = result.GetString(4);
                             string name = result.GetString(5);
-                            string gender = result.GetString(6);
-                            string birthdate = result.GetString(7);
+                            string birthdate = result.GetString(6);
+                            string gender = result.GetString(7);
                             string height = result.GetString(8);
                             string weight = result.GetString(9);
 
@@ -73,8 +73,8 @@ namespace mealplan.domain.users.repository
                         string loginId = result.GetString(2);
                         string password = result.GetString(4);
                         string name = result.GetString(5);
-                        string gender = result.GetString(6);
-                        string birthdate = result.GetString(7);
+                        string birthdate = result.GetString(6);
+                        string gender = result.GetString(7);
                         string height = result.GetString(8);
                         string weight = result.GetString(9);
 

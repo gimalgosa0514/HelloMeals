@@ -39,6 +39,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.inputWeight = new mealplan.custom.PlaceholderTextBox();
+            this.inputHeight = new mealplan.custom.PlaceholderTextBox();
             this.inputBirthdate = new mealplan.custom.PlaceholderTextBox();
             this.inputPassword = new mealplan.custom.PlaceholderTextBox();
             this.inputId = new mealplan.custom.PlaceholderTextBox();
@@ -49,6 +53,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SandyBrown;
+            this.panel1.Controls.Add(this.inputWeight);
+            this.panel1.Controls.Add(this.inputHeight);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.inputBirthdate);
             this.panel1.Controls.Add(this.inputPassword);
             this.panel1.Controls.Add(this.inputId);
@@ -67,14 +75,14 @@
             this.panel1.Location = new System.Drawing.Point(12, 13);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(316, 538);
+            this.panel1.Size = new System.Drawing.Size(316, 583);
             this.panel1.TabIndex = 0;
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Noto Sans KR", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(52, 417);
+            this.button2.Location = new System.Drawing.Point(52, 514);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(205, 35);
             this.button2.TabIndex = 17;
@@ -110,7 +118,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Noto Sans KR", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(52, 376);
+            this.button1.Location = new System.Drawing.Point(52, 473);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(205, 35);
             this.button1.TabIndex = 14;
@@ -184,6 +192,48 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "회원가입";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Noto Sans KR", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(48, 411);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 19);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "몸무게";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Noto Sans KR", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(48, 352);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(21, 19);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "키";
+            // 
+            // inputWeight
+            // 
+            this.inputWeight.ForeColor = System.Drawing.Color.Gray;
+            this.inputWeight.Location = new System.Drawing.Point(52, 433);
+            this.inputWeight.Name = "inputWeight";
+            this.inputWeight.Size = new System.Drawing.Size(205, 25);
+            this.inputWeight.TabIndex = 26;
+            this.inputWeight.Tag = "예시)80";
+            this.inputWeight.Text = "예시)80";
+            // 
+            // inputHeight
+            // 
+            this.inputHeight.ForeColor = System.Drawing.Color.Gray;
+            this.inputHeight.Location = new System.Drawing.Point(52, 374);
+            this.inputHeight.Name = "inputHeight";
+            this.inputHeight.Size = new System.Drawing.Size(205, 25);
+            this.inputHeight.TabIndex = 25;
+            this.inputHeight.Tag = "예시)177.7";
+            this.inputHeight.Text = "예시)177.7";
+            // 
             // inputBirthdate
             // 
             this.inputBirthdate.ForeColor = System.Drawing.Color.Gray;
@@ -228,7 +278,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 565);
+            this.ClientSize = new System.Drawing.Size(340, 608);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Noto Sans KR", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -257,5 +307,9 @@
         private custom.PlaceholderTextBox inputPassword;
         private custom.PlaceholderTextBox inputId;
         private custom.PlaceholderTextBox inputName;
+        private custom.PlaceholderTextBox inputWeight;
+        private custom.PlaceholderTextBox inputHeight;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label8;
     }
 }
